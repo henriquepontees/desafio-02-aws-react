@@ -1,5 +1,6 @@
 import '../styles/Cart.css';
 import { useState } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
 
 const products = [
   {
@@ -54,6 +55,9 @@ export const Cart = () => {
       <main>
         {products.map((product, index) => (
           <article key={product.id} className="card">
+            <div className="trash-icon-container">
+              <FiTrash2 className="trash-icon" />
+            </div>
             <img src={product.image} alt={product.title} className="product-image" />
             <h2 className="product-title">{product.title}</h2>
             <section className="quantity-control">
