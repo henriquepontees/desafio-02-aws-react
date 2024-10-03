@@ -1,82 +1,93 @@
-import '../styles/Cart.css';
 import { useState } from 'react';
-import { FiTrash2 } from 'react-icons/fi';
+import { CartItem } from '../components/CartItem';
+import { EmptyCart } from '../components/EmptyCart';
+import '../styles/Cart.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const products = [
-  {
+const initialProducts = [
+{
     id: 1,
     image: 'https://via.placeholder.com/122x170',
     title: 'Produto 1',
     price: 29.99,
-  },
-  {
+},
+{
     id: 2,
     image: 'https://via.placeholder.com/122x170',
     title: 'Produto 2',
     price: 19.99,
-  },
-  {
+},
+{
     id: 3,
     image: 'https://via.placeholder.com/122x170',
     title: 'Produto 3',
-    price: 39.99,
-  },
-  {
-    id: 4,
-    image: 'https://via.placeholder.com/122x170',
-    title: 'Produto 4',
-    price: 24.99,
-  },
+    price: 19.99,
+},
+
 ];
 
 export const Cart = () => {
+    const [products, setProducts] = useState(initialProducts);
+    const [quantities, setQuantities] = useState(Array(products.length).fill(1));
 
-  const [quantities, setQuantities] = useState(Array(products.length).fill(1));
-  
-  const handleIncrement = (index:number) => {
-    const newQuantities = [...quantities];
-    newQuantities[index]++;
-    setQuantities(newQuantities);
-  };
+    const handleIncrement = (index: number) => {
+        const newQuantities = [...quantities];
+        newQuantities[index]++;
+        setQuantities(newQuantities);
+    };
 
-  const handleDecrement = (index:number) => {
-    const newQuantities = [...quantities];
-    if (newQuantities[index] > 1) {
-      newQuantities[index]--;
-      setQuantities(newQuantities);
+    const handleDecrement = (index: number) => {
+        const newQuantities = [...quantities];
+            if (newQuantities[index] > 1) {
+                newQuantities[index]--;
+                setQuantities(newQuantities);
+            }
+    };
+
+    const handleRemove = (id: number) => {
+        const updatedProducts = products.filter(product => product.id !== id);
+        setProducts(updatedProducts);
+
+        const updatedQuantities = quantities.filter((quantity, index) => products[index].id !== id);
+        setQuantities(updatedQuantities);
+
+        toast.success('Produto removido com sucesso!', {
+            position: "top-right",
+            autoClose: 3000, 
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    
+    if (products.length === 0) {
+    return <EmptyCart />;
     }
-  };
 
-  return (
-    <div className="cart-container">
-      <header>
-        <h1>Meu Carrinho</h1>
-      </header>
-      <main>
-        {products.map((product, index) => (
-          <article key={product.id} className="card">
-            <div className="trash-icon-container">
-              <FiTrash2 className="trash-icon" />
-            </div>
-            <img src={product.image} alt={product.title} className="product-image" />
-            <div className="desktop-container">
-            <h2 className="product-title">{product.title}</h2>
-            <section className="quantity-control">
-              <button className="decrement" onClick={() => handleDecrement(index)}
-                style={{backgroundColor: quantities[index] === 1 ? 'rgba(186, 186, 186, 1)' : 'rgba(255, 129, 0, 1)'}}>
-                -
-              </button>
-              <span className="quantity">{quantities[index]}</span>
-              <button className="increment" onClick={() => handleIncrement(index)}>+</button>
-            </section>
-            </div>
-            <p className="product-price">${product.price.toFixed(2)}</p>
-          </article>
-        ))}
-      </main>
-      <footer className="footer">
-        <button className="buy-button">Comprar</button>
-      </footer>
-    </div>
-  );
+    return (
+        <div className="cart-container">
+            <header>
+                <h1>Meu Carrinho</h1>
+            </header>
+            <main>
+            {products.map((product, index) => (
+                <CartItem
+                key={product.id}
+                product={product}
+                quantity={quantities[index]}
+                onIncrement={() => handleIncrement(index)}
+                onDecrement={() => handleDecrement(index)}
+                onRemove={() => handleRemove(product.id)}
+                />
+                ))}
+            </main>
+            <footer className="footer">
+                <button className="buy-button">Comprar</button>
+            </footer>
+            <ToastContainer />
+        </div>
+    );
 };
