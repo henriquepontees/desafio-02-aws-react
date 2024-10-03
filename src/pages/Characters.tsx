@@ -49,18 +49,18 @@ export const Characters = () => {
   };
 
   const handleImageClick = (id: number) => {
-    navigate(`/${id}`);
+    navigate(`${id}`);
   };
 
   return (
     <div className='charactersGrid'>
-    <ul className="character-list">
+    <ul className="character-list" >
         {characters.map((character: Character) => (
             <li key={character.id} className="character-card">
-                <div className="character-image" onClick={() => handleImageClick(character.id)}>
-                    <img src={character.image} alt={character.name} />
+                <div className="character-image">
+                    <img src={character.image} alt={character.name}  onClick={() => handleImageClick(character.id)}/>
                 </div>
-                <div className="character-name">
+                <div className="character-name" onClick={() => handleImageClick(character.id)}>
                     <span>{character.name}</span>
                 </div>
             </li>
