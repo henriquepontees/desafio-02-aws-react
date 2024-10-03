@@ -59,12 +59,14 @@ export const Cart = () => {
               <FiTrash2 className="trash-icon" />
             </div>
             <img src={product.image} alt={product.title} className="product-image" />
+            <div className="desktop-container">
             <h2 className="product-title">{product.title}</h2>
             <section className="quantity-control">
               <button className="decrement" onClick={() => handleDecrement(index)}>-</button>
               <span className="quantity">{quantities[index]}</span>
               <button className="increment" onClick={() => handleIncrement(index)}>+</button>
             </section>
+            </div>
             <p className="product-price">${product.price.toFixed(2)}</p>
           </article>
         ))}
