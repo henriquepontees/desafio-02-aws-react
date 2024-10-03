@@ -141,6 +141,37 @@ h1 {
     font-size: 24px;
 }
 
+.empty-cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 163px;
+    width: 100%;
+}
+
+.empty-cart-image {
+    width: 148px;
+    height: 148px;
+    margin-bottom: 24px;
+}
+
+.empty-cart {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 800;
+    white-space: nowrap;
+    margin: 16px;
+}
+
+.add-itens {
+    font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 600;
+    margin: 0px;
+}
+
 @media (min-width: 768px) {
     
     h1 {
@@ -205,4 +236,31 @@ h1 {
         width: 300px;
         height: 45px;
     }
+
+    .empty-cart-container {
+        margin-top: 0px;
+    }
+
+    .empty-cart-image {
+        width: 248px;
+        height: 248px;
+        margin-bottom: 16px;
+        margin-top: 120px;
+    }
+    
+    .empty-cart {
+        font-size: 64px;
+        line-height: 76.8px;
+        font-weight: 800;
+        white-space: nowrap;
+        margin: 16px;
+    }
+    
+    .add-itens {
+        font-size: 24px;
+        line-height: 28.8px;
+        font-weight: 600;
+        margin: 0px;
+    }
+
 }
