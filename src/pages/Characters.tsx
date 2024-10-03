@@ -23,7 +23,7 @@ export const Characters = () => {
           }
 
         const response = await axios.get(
-          `https://gateway.marvel.com:443/v1/public/characters?limit=2&offset=${offset}&apikey=${apiKey}`
+          `https://gateway.marvel.com:443/v1/public/characters?limit=20&offset=${offset}&apikey=${apiKey}`
         );
         
         const characterData: Character[] = response.data.data.results.map((character: any) => ({
@@ -41,9 +41,21 @@ export const Characters = () => {
     fetchData(); 
   }, [offset]); 
 
-  
+  const handleClick = () => {
+    setOffset((prevOffset) => prevOffset + 20); 
+  };
 
   return (
-    <h1>Characters</h1>
+    <div className='charactersGrid'>
+      <ul>
+        {characters.map((character: Character) => (
+          <li key={character.id}>
+            <h2>{character.name}</h2>
+            <img src={character.image} alt={character.name} />
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleClick}>Carregar mais</button>
+    </div>
   );
 };
