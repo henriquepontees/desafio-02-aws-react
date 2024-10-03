@@ -62,7 +62,10 @@ export const Cart = () => {
             <div className="desktop-container">
             <h2 className="product-title">{product.title}</h2>
             <section className="quantity-control">
-              <button className="decrement" onClick={() => handleDecrement(index)}>-</button>
+              <button className="decrement" onClick={() => handleDecrement(index)}
+                style={{backgroundColor: quantities[index] === 1 ? 'rgba(186, 186, 186, 1)' : 'rgba(255, 129, 0, 1)'}}>
+                -
+              </button>
               <span className="quantity">{quantities[index]}</span>
               <button className="increment" onClick={() => handleIncrement(index)}>+</button>
             </section>
