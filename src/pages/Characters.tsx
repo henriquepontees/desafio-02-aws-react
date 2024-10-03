@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '/src/styles/Character.css';
 
 interface Character {
   id: number;
@@ -12,6 +14,7 @@ export const Characters = () => {
   const apiKey = '6fc18222ac8e9167cd6f3fb05cff423b';
   const [offset, setOffset] = useState(0);
   const firstLoad = useRef(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,16 +48,24 @@ export const Characters = () => {
     setOffset((prevOffset) => prevOffset + 20); 
   };
 
+  const handleImageClick = (id: number) => {
+    navigate(`/${id}`);
+  };
+
   return (
     <div className='charactersGrid'>
-      <ul>
+    <ul className="character-list">
         {characters.map((character: Character) => (
-          <li key={character.id}>
-            <h2>{character.name}</h2>
-            <img src={character.image} alt={character.name} />
-          </li>
+            <li key={character.id} className="character-card">
+                <div className="character-image" onClick={() => handleImageClick(character.id)}>
+                    <img src={character.image} alt={character.name} />
+                </div>
+                <div className="character-name">
+                    <span>{character.name}</span>
+                </div>
+            </li>
         ))}
-      </ul>
+    </ul>
       <button onClick={handleClick}>Carregar mais</button>
     </div>
   );
