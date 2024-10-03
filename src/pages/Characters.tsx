@@ -32,7 +32,7 @@ export const Characters = () => {
         const characterData: Character[] = response.data.data.results.map((character: any) => ({
           id: character.id,
           name: character.name,
-          image: `${character.thumbnail.path}/portrait_incredible.jpg`,
+          image: `${character.thumbnail.path}/portrait_xlarge.jpg`,
         }));
 
         setCharacters((prevCharacters) => [...prevCharacters, ...characterData]);
@@ -44,7 +44,7 @@ export const Characters = () => {
     fetchData(); 
   }, [offset]); 
 
-  const handleClick = () => {
+  const handleButtonClick = () => {
     setOffset((prevOffset) => prevOffset + 20); 
   };
 
@@ -66,7 +66,7 @@ export const Characters = () => {
             </li>
         ))}
     </ul>
-      <button onClick={handleClick}>Carregar mais</button>
+      <button onClick={handleButtonClick}>Carregar mais</button>
     </div>
   );
 };
