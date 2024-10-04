@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header'; 
 import Login from './pages/Login'; 
+import { Cart } from './pages/Cart';
+import { Characters } from './pages/Characters';
 
 const App = () => {
     return (
-        <Router>
+        <BrowserRouter>
             <div>
                 {/* Renderizar o Header apenas se a rota não for '/login' ou '/register' ou '/' */}
                 {window.location.pathname !== '/login' && window.location.pathname !== '/register' && window.location.pathname !== '/' && <Header />}
@@ -15,10 +17,9 @@ const App = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/Characters" element={<Characters />} />
-                   
                 </Routes>
             </div>
-        </Router>
+        </BrowserRouter>
     );
 };
 
