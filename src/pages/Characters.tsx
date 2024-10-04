@@ -19,7 +19,6 @@ export const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         if (firstLoad.current) {
             firstLoad.current = false; 
             return;
@@ -66,7 +65,7 @@ export const Characters = () => {
             </li>
         ))}
     </ul>
-      <button onClick={handleButtonClick}>Carregar mais</button>
+      <button onClick={handleButtonClick} className='button-characters' >Carregar mais</button>
     </div>
   );
 };

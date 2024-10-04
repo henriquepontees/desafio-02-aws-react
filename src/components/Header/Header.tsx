@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                 </div>
             </div>
 
-            {location.pathname !== '/Cart' && (
+            {location.pathname !== '/cart' && (
                 <div className="search-container">
                     <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
                     <input
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
                 <button className="close-btn" onClick={toggleSidebar}>
                     <IoClose />
                 </button>
-                <h2>Páginas</h2>
+                <h2 className='h2-header' >Páginas</h2>
                 <div className="sidebar-links">
                     <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>Quadrinhos</Link>
                     <Link to="/characters" className={location.pathname === '/Characters' ? 'active' : ''}>Personagens</Link>
