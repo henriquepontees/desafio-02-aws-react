@@ -7,8 +7,8 @@ interface Comic {
     title: string;
     description: string | null;
     thumbnail: {
-      path: string;
-      extension: string;
+        path: string;
+        extension: string;
     };
     creators: {
         available: number;
@@ -19,65 +19,69 @@ interface Comic {
     };
     dates: {
         type: string;
-        date: string;     
+        date: string;
     }[];
     prices: {
         type: string;
         price: number;
     }[];
-  }
+}
 
 const ComicsList: React.FC = () => {
-  const publicKey = 'e55560ca5e17759eb1563f995c0426de'; 
-  const url = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}`;
+    const publicKey = 'e55560ca5e17759eb1563f995c0426de';
+    const [comics, setComics] = useState<Comic[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [offset, setOffset] = useState<number>(0);
 
-  const [comics, setComics] = useState<Comic[]>([]);
-  const [loading, setLoading] = useState<Boolean>(true);
-
-  useEffect(() => {
-    const fetchComics = async () => {
-      try {
-        const response = await axios.get(url);
-        console.log('Resposta completa da API:', response.data);
-        setComics(response.data.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.error('Erro ao buscar HQs:', error);
-        setLoading(false);
-      }
+    const fetchComics = async (offset: number) => {
+        const url = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}&offset=${offset}`;
+        try {
+            const response = await axios.get(url);
+            console.log('Request', response.data);
+            setComics((prevComics) => [...prevComics, ...response.data.data.results]);
+            setLoading(false);
+        } catch (error) {
+            console.error('Erro ao buscar HQs:', error);
+            setLoading(false);
+        }
     };
 
-    fetchComics();
-  }, []);
+    useEffect(() => {
+        fetchComics(offset);
+    }, [offset]);
+
+    const loadMoreComics = () => {
+        setOffset((prevOffset) => prevOffset + 20);
+    };
 
     return (
         <div>
-        <h1>Marvel Comics</h1>
-        {loading ? (
-            <p>Carregando...</p>
-        ) : (
-            <div id='main'>
-            {comics.map((comic) => (
-                <div key={comic.id}>
-                    <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}/>
-                    <h3>{comic.title}</h3>
-                    {comic.creators.items.slice(0, 1).map((creator) => (
-                        <p key={creator.resourceURI}>
-                            {creator.name}
-                        </p>
-                        ))}
-                    <div>
-                        <h4> 
-                        ${comic.prices[0]?.price ?? 'N/A'}
-                        </h4>
-                        <h4>
-                        {new Date(comic.dates.find(date => date.type === 'onsaleDate')?.date ?? '').getFullYear() || 'N/A'}
-                        </h4>
-                    </div>
+            {loading ? (
+                <p>Carregando...</p>
+            ) : (
+                <div id='main'>
+                    {comics.map((comic) => (
+                        <div key={comic.id} id='comicInfo'>
+                            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
+                            <h3 id='title'>{comic.title}</h3>
+                            <h4 id='price'>${comic.prices[0]?.price}</h4>
+                            <div id='creator-year'>
+                                {comic.creators.items.length > 0 ? (
+                                    comic.creators.items.slice(0, 1).map((creator) => (
+                                        <p key={creator.resourceURI}>{creator.name}</p>
+                                    ))
+                                ) : (
+                                    <p>sem registro</p>
+                                )}
+                                <h4>
+                                    {new Date(comic.dates.find(date => date.type === 'onsaleDate')?.date ?? '').getFullYear() || 'N/A'}
+                                </h4>
+                            </div>
+                        </div>
+                    ))}
+                    <button onClick={loadMoreComics}>Carregar mais gibis</button>
                 </div>
-            ))}
-            </div>
-        )}
+            )}
         </div>
     );
 };
