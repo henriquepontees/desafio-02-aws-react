@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CartItem } from '../components/CartItem';
-import { EmptyCart } from '../components/EmptyCart';
+import { CartItem } from '../components/Cart/CartItem';
+import { EmptyCart } from '../components/Cart/EmptyCart';
 import '../styles/Cart.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
