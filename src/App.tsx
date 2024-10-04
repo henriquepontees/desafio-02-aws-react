@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from './pages/Login';
-import ComicsList from "./Components/ComicList";
+import ComicsList from "./pages/ComicList";
 
 function App() {
 

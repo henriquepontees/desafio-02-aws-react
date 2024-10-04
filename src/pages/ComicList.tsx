@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../styles/ComicList.css';
 
 interface Comic {
@@ -16,10 +17,10 @@ interface Comic {
             name: string;
         }[];
     };
-    data: {
+    dates: {
         type: string;
-        date: Date;     
-    }
+        date: string;     
+    }[];
     prices: {
         type: string;
         price: number;
@@ -36,9 +37,9 @@ const ComicsList: React.FC = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setComics(data.data.results);
+        const response = await axios.get(url);
+        console.log('Resposta completa da API:', response.data);
+        setComics(response.data.data.results);
         setLoading(false);
       } catch (error) {
         console.error('Erro ao buscar HQs:', error);
@@ -55,7 +56,7 @@ const ComicsList: React.FC = () => {
         {loading ? (
             <p>Carregando...</p>
         ) : (
-            <div>
+            <div id='main'>
             {comics.map((comic) => (
                 <div key={comic.id}>
                     <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}/>
@@ -66,8 +67,12 @@ const ComicsList: React.FC = () => {
                         </p>
                         ))}
                     <div>
-                        <h4>preço</h4>
-                        <h4>ano</h4> 
+                        <h4> 
+                        ${comic.prices[0]?.price ?? 'N/A'}
+                        </h4>
+                        <h4>
+                        {new Date(comic.dates.find(date => date.type === 'onsaleDate')?.date ?? '').getFullYear() || 'N/A'}
+                        </h4>
                     </div>
                 </div>
             ))}
