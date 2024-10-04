@@ -13,6 +13,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .header-content {
@@ -33,7 +34,7 @@
 }
 
 /* Header Text */
-h2 {
+.h2-header {
     color: #BABABA;
     padding: 10px;
     font-size: 17px;
