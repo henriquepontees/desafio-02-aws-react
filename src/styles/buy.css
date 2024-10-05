@@ -4,6 +4,70 @@ header {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     height: 1117px;
-    background-color: aliceblue;
+    font-family: "Roboto";
+}
+
+#buyTitle #title {
+    text-align: center;
+    font-weight: 800;
+    size: 32px;
+    line-height: 38.4px;
+    width: 244px;
+    height: 38px;
+}
+
+#buyInfo {
+    width: 359px;
+    height: 867px;
+    gap: 12px;
+}
+
+#buyInfo section {
+/*     background-color: #F3F3F3; */
+    background-color: brown;
+}
+
+#addressForm {
+    width: 360px;
+    height: 501px;
+    border-radius: 6px;
+    padding: 10px;
+    gap: 32px;
+}
+
+#addressTitle{
+    width: 100%;
+    height: 21px;
+    font-weight: 400;
+    size: 16px;
+    line-height: 20.8px;
+}
+
+#addressDescription {
+    width: 100%;
+    height: 36px;
+    font-weight: 400;
+    size: 14px;
+    line-height: 18.2px;
+}
+
+#buyInfo #addressForm form {
+    height: 324px;
+    width: 375px;
+    gap: 16px;
+}
+
+.formInput {
+    width: 375px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: #FAFFFD;
+    border: 1px solid #BABABA;
+    padding: 12px;
+    gap: 4px;
 }
