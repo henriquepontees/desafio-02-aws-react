@@ -14,7 +14,7 @@
     padding-bottom: 76px;
     padding-top: 60px;
     font-family: 'Sofia Sans', sans-serif;
-    
+
 }
 
 .card {
@@ -180,7 +180,7 @@
 
 @media (min-width: 768px) {
     
-    .h1-cart {
+    .h1-cart-title {
         font-size: 64px;
         margin: 32px;
         line-height: 76.8px;

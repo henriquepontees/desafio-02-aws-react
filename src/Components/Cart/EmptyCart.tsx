@@ -4,7 +4,7 @@ export const EmptyCart = () => {
     return (
         <div className="cart-container">
             <header>
-                <h1>Meu Carrinho</h1>
+                <h1 className='h1-cart-title'>Meu Carrinho</h1>
             </header>
             <main>
                 <section className="empty-cart-container">
