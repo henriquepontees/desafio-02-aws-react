@@ -5,6 +5,8 @@ import { Cart } from './pages/Cart';
 import { Characters } from './pages/Characters';
 import { HeaderEnableValidator } from './Utils/Functions';
 import Header from './components/Header/Header';
+import { Register } from './pages/Register';
+
 
 export const AppRoutes = () => {
     return (
@@ -15,6 +17,7 @@ export const AppRoutes = () => {
                     <Route path={EnumRoutes.LOGIN} element={<Login />} />
                     <Route path={EnumRoutes.CART} element={<Cart />} />
                     <Route path={EnumRoutes.CHARACTERS} element={<Characters />} />
+                    <Route path={EnumRoutes.REGISTER} element={<Register />} />
                 </Routes>
         </BrowserRouter>
     );    
