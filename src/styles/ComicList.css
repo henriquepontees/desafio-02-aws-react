@@ -15,16 +15,13 @@ body
 #comicInfo
 {
     width: 240px;
-    height: auto;
     margin: 24px 59.5px 24px 59.5px;
-    font-size: 16px;
-    padding: 8px;
 }
 
 img
 {
     width: 240px;
-    height: 333.33px;
+    height: auto;
     box-shadow: 0px 6px 15px 5px #0000001F;
 }
 
@@ -44,7 +41,12 @@ img
     color: #FF8100;
 }
 
-#title
+#button
 {
-    height: auto;
+    background-color: #FF8100;
+    color: white;
+    width: 292px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 20px;
 }

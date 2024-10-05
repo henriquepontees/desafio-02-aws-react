@@ -79,7 +79,7 @@ const ComicsList: React.FC = () => {
                             </div>
                         </div>
                     ))}
-                    <button onClick={loadMoreComics}>Carregar mais gibis</button>
+                    <button onClick={loadMoreComics} id='button'>+ Carregar mais</button>
                 </div>
             )}
         </div>
