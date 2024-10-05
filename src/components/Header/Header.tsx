@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../styles/Header.css';
 import logo from '../../assets/logo.png';
 import { AiOutlineShoppingCart, AiOutlineMenu } from "react-icons/ai";
-import { IoClose } from "react-icons/io5";
 import { FiLogOut } from "react-icons/fi";
 import { RxMagnifyingGlass } from "react-icons/rx";
+import axios from 'axios';
+import { PUBLIC_KEY } from '../Commons';
+import SideBar from './SideBar'
 
-const Header: React.FC = () => {
+
+export interface HeaderProps {
+    enabled: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({enabled = false}) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
     const [isCartSelected, setIsCartSelected] = useState<boolean>(false);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [cartNotification, setCartNotification] = useState<boolean>(true); // coloquei true pra bolinha aparecer ao carregar, tem que fazer a logica pra do cart
+    const [searchResults] = useState<any[]>([]); // Novo estado para os resultados da busca
+    const [cartNotification] = useState<boolean>(true); 
+    const [isEnabled] = useState<boolean>(enabled); 
     const location = useLocation();
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(prev => !prev);
     };
 
     const handleCartClick = () => {
-        window.location.href = '/cart';
+        navigate('/Cart');
     };
 
     useEffect(() => {
@@ -27,33 +37,46 @@ const Header: React.FC = () => {
     }, [location]);
 
     const getPlaceholder = () => {
-        if (location.pathname === '/comics') {
-            return '           Pesquisar por título...';
-        } else if (location.pathname === '/characters') {
-            return '           Pesquisar por nome...';
+        switch (location.pathname) {
+            case '/comics':
+                return '          Pesquisar por título...';
+            case '/characters':
+                return '          Pesquisar por nome...';
+            default:
+                return 'Pesquisar...';
         }
-        return 'Pesquisar...';
     };
 
-    const handleSearch = () => {
-        const path = location.pathname;
-        const apiUrl = `URL_DA_API/${path.slice(1)}?filter=${searchQuery}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
+    const getCharactersByName = async (name: string) => {
+        const apiUrl = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${name}&apikey=${PUBLIC_KEY}`;
+        try {
+            const response = await axios.get(apiUrl);
+            if (response.status === 200) {
+                return response.data.data.results;
+            }
+        } catch (err) {
+            console.error('Error fetching characters:', err);
+            return null;
+        }
+    };
+    const handleSearch = async () => {
+        if (searchQuery.trim() === '') return;
+    
+        
+        navigate(`/characters?search=${encodeURIComponent(searchQuery)}`);
+        setSearchQuery(''); 
     };
 
+    if(isEnabled)
     return (
+        <>
         <header className="header">
             <div className="header-content">
                 <img src={logo} alt="UOL Comics" className="logo" />
                 <div className={`cart-icon ${isCartSelected ? 'selected' : ''}`} onClick={handleCartClick}>
                     <AiOutlineShoppingCart />
                     {cartNotification && <span className="notification-badge"></span>}
-                </div>
+        </div>
                 <div className="menu-icon" onClick={toggleSidebar}>
                     <AiOutlineMenu />
                 </div>
@@ -74,10 +97,22 @@ const Header: React.FC = () => {
                             }
                         }}
                     />
+                  {searchResults.length > 0 && (
+                      <div className="search-results">
+                            {searchResults.map(character => (
+                                <div key={character.id} className="search-result-item">
+                                    <Link to={`/characters/${character.id}`}>
+                                        {character.name}
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
 
             <div className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}></div>
+<<<<<<< Updated upstream
 
             <nav className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
                 <button className="close-btn" onClick={toggleSidebar}>
@@ -93,6 +128,12 @@ const Header: React.FC = () => {
                 </button>
             </nav>
 
+=======
+            <SideBar
+             isOpen={isSidebarOpen}
+             toggleCallback={toggleSidebar}
+            />
+>>>>>>> Stashed changes
             <div className="desktop-links">
                 <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>Quadrinhos</Link>
                 <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''}>Personagens</Link>
@@ -100,12 +141,14 @@ const Header: React.FC = () => {
                     <AiOutlineShoppingCart />
                     {cartNotification && <span className="notification-badge"></span>}
                 </div>
-                <button className="logout-btn-desktop" onClick={() => window.location.href = '/login'}>
+                <button className="logout-btn-desktop" onClick={() => navigate('/login')}>
                     <FiLogOut style={{ marginRight: '8px' }} /> Sair
                 </button>
             </div>
         </header>
+        </>
     );
+    else return (<></>) 
 };
 
 export default Header;

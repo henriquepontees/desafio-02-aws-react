@@ -29,8 +29,14 @@
     width: 200px;
     border-top: solid 5px #FF8100;
     color: #FAFFFD;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 81%, 92% 100%, 0% 100%);
+    clip-path:  polygon(0% 0%, 100% 0%, 100% 81%, 92% 100%, 0% 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1; 
+    margin-bottom: 20px; 
 }
+
 
 .character-image:hover ~ .character-name,
 .character-name:hover {
