@@ -1,18 +1,16 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header'; 
-import LoginRegister from './pages/LoginRegister'; 
 import { Cart } from './pages/Cart';
 import { Characters } from './pages/Characters';
-import { Register } from './components/LoginRegister/Register';
-import { Login } from './components/LoginRegister/Login';
+import { Register } from './pages/Register';
+import { Login } from './pages/Login';
 
 const App = () => {
     return (
         <BrowserRouter>
             <div>
                 {/* Renderizar o Header apenas se a rota não for '/login' ou '/register' ou '/' */}
-                {window.location.pathname !== '/login' && window.location.pathname !== '/register' && window.location.pathname !== '/' && <Header />}
+                {window.location.pathname !== '/login' && window.location.pathname !== '/register' && window.location.pathname !== '/loginregister' && window.location.pathname !== '/' && <Header />}
                 
                 <Routes>
                     <Route path="/" element={<Login />} />

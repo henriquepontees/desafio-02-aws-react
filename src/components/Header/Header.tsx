@@ -19,11 +19,11 @@ const Header: React.FC = () => {
     };
 
     const handleCartClick = () => {
-        window.location.href = '/Cart';
+        window.location.href = '/cart';
     };
 
     useEffect(() => {
-        setIsCartSelected(location.pathname === '/Cart');
+        setIsCartSelected(location.pathname === '/cart');
     }, [location]);
 
     const getPlaceholder = () => {

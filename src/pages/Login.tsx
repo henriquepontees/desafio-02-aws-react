@@ -1,5 +1,5 @@
-import '../../styles/LoginRegister.css'
-import logo from '../../assets/logo-uol-comics.svg'
+import '../styles/LoginRegister.css'
+import logo from '../assets/logo-uol-comics.svg'
 import { LuAtSign } from "react-icons/lu";
 import { MdOutlineLock } from "react-icons/md"
 

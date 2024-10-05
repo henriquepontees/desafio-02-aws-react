@@ -1,5 +1,5 @@
-import '../../styles/LoginRegister.css'
-import logo from '../../assets/logo-uol-comics.svg'
+import '../styles/LoginRegister.css'
+import logo from '../assets/logo-uol-comics.svg'
 import { GoPerson } from "react-icons/go"
 import { MdOutlinePassword } from "react-icons/md";
 import { MdOutlineLock } from "react-icons/md";
