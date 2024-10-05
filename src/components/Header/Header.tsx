@@ -112,28 +112,10 @@ const Header: React.FC<HeaderProps> = ({enabled = false}) => {
             )}
 
             <div className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}></div>
-<<<<<<< Updated upstream
-
-            <nav className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-                <button className="close-btn" onClick={toggleSidebar}>
-                    <IoClose />
-                </button>
-                <h2 className='h2-header' >Páginas</h2>
-                <div className="sidebar-links">
-                    <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>Quadrinhos</Link>
-                    <Link to="/characters" className={location.pathname === '/Characters' ? 'active' : ''}>Personagens</Link>
-                </div>
-                <button className="logout-btn" onClick={() => window.location.href = '/login'}>
-                    <FiLogOut style={{ marginRight: '8px' }} /> Sair
-                </button>
-            </nav>
-
-=======
             <SideBar
              isOpen={isSidebarOpen}
              toggleCallback={toggleSidebar}
             />
->>>>>>> Stashed changes
             <div className="desktop-links">
                 <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>Quadrinhos</Link>
                 <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''}>Personagens</Link>

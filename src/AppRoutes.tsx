@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { EnumRoutes } from './Utils/Enums'
-import Login from './pages/Login';
+import { Login } from './pages/Login';
 import { Cart } from './pages/Cart';
 import { Characters } from './pages/Characters';
 import { HeaderEnableValidator } from './Utils/Functions';
