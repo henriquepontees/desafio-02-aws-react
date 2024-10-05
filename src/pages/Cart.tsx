@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CartItem } from '../components/CartItem';
-import { EmptyCart } from '../components/EmptyCart';
+import { CartItem } from '../components/Cart/CartItem';
+import { EmptyCart } from '../components/Cart/EmptyCart';
 import '../styles/Cart.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -70,7 +70,7 @@ export const Cart = () => {
     return (
         <div className="cart-container">
             <header>
-                <h1>Meu Carrinho</h1>
+                <h1 className='h1-cart-title'>Meu Carrinho</h1>
             </header>
             <main>
             {products.map((product, index) => (

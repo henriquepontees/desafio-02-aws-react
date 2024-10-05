@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '/src/styles/Character.css';
+import { PUBLIC_KEY } from '../Components/Commons';
 
 interface Character {
   id: number;
@@ -11,24 +12,30 @@ interface Character {
 
 export const Characters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
-  const apiKey = '6fc18222ac8e9167cd6f3fb05cff423b';
   const [offset, setOffset] = useState(0);
   const firstLoad = useRef(true);
   const navigate = useNavigate();
+  const location = useLocation();
+  const storage = localStorage;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        
+        const params = new URLSearchParams(location.search);
+        const searchQuery = params.get('search');
 
-        if (firstLoad.current) {
-            firstLoad.current = false; 
-            return;
-          }
+        
+        if (firstLoad.current || searchQuery) {
+          firstLoad.current = false; 
+          setCharacters([]); 
+          setOffset(0); 
+        }
 
         const response = await axios.get(
-          `https://gateway.marvel.com:443/v1/public/characters?limit=20&offset=${offset}&apikey=${apiKey}`
-        );
-        
+          `https://gateway.marvel.com:443/v1/public/characters?limit=20&offset=${offset}&apikey=${PUBLIC_KEY}${searchQuery ? `&nameStartsWith=${searchQuery}` : ''}`
+        ); 
+
         const characterData: Character[] = response.data.data.results.map((character: any) => ({
           id: character.id,
           name: character.name,
@@ -41,32 +48,37 @@ export const Characters = () => {
       }
     };
 
-    fetchData(); 
-  }, [offset]); 
+    fetchData();
+  }, [offset, location.search]); 
 
   const handleButtonClick = () => {
     setOffset((prevOffset) => prevOffset + 20); 
   };
 
   const handleImageClick = (id: number) => {
+    storage.setItem(`idImagem`, id.toString())
     navigate(`${id}`);
   };
 
   return (
     <div className='charactersGrid'>
-    <ul className="character-list" >
+      <ul className="character-list">
         {characters.map((character: Character) => (
-            <li key={character.id} className="character-card">
-                <div className="character-image">
-                    <img src={character.image} alt={character.name}  onClick={() => handleImageClick(character.id)}/>
-                </div>
-                <div className="character-name" onClick={() => handleImageClick(character.id)}>
-                    <span>{character.name}</span>
-                </div>
-            </li>
+          <li key={character.id} className="character-card">
+            <div className="character-image">
+              <img
+                src={character.image}
+                alt={character.name}
+                onClick={() => handleImageClick(character.id)}
+              />
+            </div>
+            <div className="character-name" onClick={() => handleImageClick(character.id)}>
+              <span>{character.name}</span>
+            </div>
+          </li>
         ))}
-    </ul>
-      <button onClick={handleButtonClick}>Carregar mais</button>
+      </ul>
+      <button onClick={handleButtonClick} className='button-characters' >Carregar mais</button>
     </div>
   );
 };

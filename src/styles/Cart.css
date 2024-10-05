@@ -1,22 +1,20 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap');
 
-h1 {
+.h1-cart-title {
     text-align: center;
     font-size: 32px;
-    margin-top: 60px;
+    padding-top: 60px;
     margin-bottom: 43px;
     color: rgba(12, 12, 12, 1);
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .cart-container {
     max-width: 100%;
     padding-bottom: 76px;
+    padding-top: 60px;
+    font-family: 'Sofia Sans', sans-serif;
+
 }
 
 .card {
@@ -33,7 +31,6 @@ h1 {
     width: 359px;
     padding-bottom: 16px;
     position: relative;
-    
 }
 
 .product-image {
@@ -86,6 +83,7 @@ h1 {
     line-height: 20px;
     font-weight: 600;
     color: rgba(12, 12, 12, 1);
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .product-price {
@@ -182,7 +180,7 @@ h1 {
 
 @media (min-width: 768px) {
     
-    h1 {
+    .h1-cart-title {
         font-size: 64px;
         margin: 32px;
         line-height: 76.8px;
