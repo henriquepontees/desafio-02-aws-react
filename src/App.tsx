@@ -1,15 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from './pages/Login';
-import ComicsList from "./pages/ComicList";
 
-function App() {
+import AppRoutes from './AppRoutes';
 
-  return <BrowserRouter>
-  <ComicsList />
-    <Routes>
-      <Route path="/" element={<Login />} />
-      </Routes>
-  </BrowserRouter>;
-}
-
+const App = () => { 
+    return (
+        <>
+            <AppRoutes />
+        </>
+        
+    );
+};
 export default App;
