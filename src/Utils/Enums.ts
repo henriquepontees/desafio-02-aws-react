@@ -6,5 +6,6 @@ export enum EnumRoutes {
     CHARACTERSDETAILS = "/CharactersDetails",
     REGISTER = "/register",
     BUY = "/Buy",
-    CART = "/cart"
+    CART = "/cart",
+    SUCESSFULL = "/Sucessfull"
 }
