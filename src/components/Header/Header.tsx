@@ -17,21 +17,19 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [cartNotification] = useState<boolean>(true);
     const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
+    const [isSearchVisible, setIsSearchVisible] = useState<boolean>(true); 
     const location = useLocation();
     const navigate = useNavigate();
-
-    // Função para alternar a visibilidade da sidebar
     const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
 
-    // Função para lidar com o clique no carrinho
     const handleCartClick = () => navigate('/Cart');
 
-    // Verifica se o carrinho está selecionado
     useEffect(() => {
         setIsCartSelected(location.pathname === '/Cart');
+        setIsSearchVisible(location.pathname !== '/Cart' && location.pathname !== '/buy' && location.pathname !== '/CharactersDetails');
     }, [location]);
+    
 
-    // Placeholder dinâmico com base na rota atual
     const getPlaceholder = () => {
         switch (location.pathname) {
             case '/ComicsList':
@@ -43,22 +41,21 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
         }
     };
 
-    // Função para lidar com a pesquisa
     const handleSearch = () => {
         if (searchQuery.trim() === '') return;
 
         const path = location.pathname === '/ComicsList' ? '/ComicsList' : '/characters';
         navigate(`${path}?search=${encodeURIComponent(searchQuery)}`);
-        setSearchQuery('');
+        setSearchQuery(''); 
     };
 
-    // Função para realizar logout
+   
     const handleLogout = () => {
         setIsHeaderVisible(false);
         navigate('/login');
     };
 
-    if (isHeaderVisible && location.pathname !== '/login' && location.pathname !== '/register') {
+    if (isHeaderVisible && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/' ) {
         return (
             <>
                 <header className="header">
@@ -76,21 +73,23 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                         </div>
                     </div>
 
-                    <div className="search-container">
-                        <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
-                        <input
-                            type="text"
-                            placeholder={getPlaceholder()}
-                            className="search-input"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyPress={(e) => {
-                                if (e.key === 'Enter') {
-                                    handleSearch();
-                                }
-                            }}
-                        />
-                    </div>
+                    {isSearchVisible && ( 
+                        <div className="search-container">
+                            <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
+                            <input
+                                type="text"
+                                placeholder={getPlaceholder()}
+                                className="search-input"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyPress={(e) => {
+                                    if (e.key === 'Enter') {
+                                        handleSearch();
+                                    }
+                                }}
+                            />
+                        </div>
+                    )}
 
                     <div
                         className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`}

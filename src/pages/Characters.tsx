@@ -14,7 +14,7 @@ interface Character {
 export const Characters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [offset, setOffset] = useState(0);
-  const [loading, setLoading] = useState(true); // Estado para controle do loading
+  const [loading, setLoading] = useState(true); 
   const firstLoad = useRef(true);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +22,7 @@ export const Characters = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); // Começar o loading
+      setLoading(true); 
 
       try {
         const params = new URLSearchParams(location.search);
@@ -48,7 +48,7 @@ export const Characters = () => {
       } catch (err: any) {
         console.log(err);
       } finally {
-        setLoading(false); // Terminar o loading
+        setLoading(false); 
       }
     };
 
@@ -66,7 +66,7 @@ export const Characters = () => {
 
   return (
     <div className='charactersGrid'>
-      {loading && <Spinner />} {/* Exibir Spinner apenas enquanto está carregando */}
+      {loading && <Spinner />} 
       <ul className="character-list">
         {characters.map((character: Character) => (
           <li key={character.id} className="character-card">
@@ -83,7 +83,7 @@ export const Characters = () => {
           </li>
         ))}
       </ul>
-      {!loading && characters.length > 0 && ( // Botão "Carregar mais" apenas se houver personagens
+      {!loading && characters.length > 0 && ( 
         <button onClick={handleButtonClick} className='button-characters'>Carregar mais</button>
       )}
     </div>
