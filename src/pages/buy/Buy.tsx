@@ -33,23 +33,28 @@ const Buy = () => {
       <section id='buyTitle'>
         <h1 id='title'>Finalize a compra</h1>
       </section>
-      <section id='buyInfo'>
+      <section id='addressInfo'>
         <section id="addressForm">
-          <h2 id="addressTitle"><SlLocationPin style={{color: "#FF8100"}}/>Endereço de Entrega</h2>
-          <p id="addressDescription">Informe o endereço onde deseja receber seu pedido</p>
+          <div>
+            <SlLocationPin style={{color: "#FF8100", marginLeft: '4px', width: '22px', height: '22px'}}/>
+            <h2 id="addressTitle">Endereço de Entrega</h2>
+            <p id="addressDescription">Informe o endereço onde deseja receber seu pedido</p>
+          </div>
           <form>
-            <fieldset>
-              <input type="text" {...register("cep", {required: true})} onBlur={checkCep} id="cep" placeholder="CEP" className="formInput"/>
-              <input type="text" {...register("street", {required: true})} id="street" placeholder="Rua" className="formInput"/>
+            <input type="text" {...register("cep", {required: true})} onBlur={checkCep} id="cep" placeholder="CEP" className="formInput"/>
+            <input type="text" {...register("street", {required: true})} id="street" placeholder="Rua" className="formInput"/>
+            <fieldset id='homeNumber'>
               <input type="text" {...register("number", {required: true})} id="number" placeholder="Número" className="formInput"/>
               <input type="text" {...register("complement", {required: false})} id="complement" placeholder="Complemento" className="formInput"/>
+            </fieldset>
+            <fieldset id='homeSpot'>
               <input type="text" {...register("district", {required: true})} id="district" placeholder="Bairro" className="formInput"/>
               <input type="text" {...register("city", {required: true})} id="city" placeholder="Cidade" className="formInput"/>
-              <input type="text" {...register("state", {required: true})} id="state" placeholder="Estado" className="formInput"/>
+              <input type="text" {...register("state", {required: true})} id="state" placeholder="UF" className="formInput"/>
             </fieldset>
-            <PaymentMethod />
           </form>
         </section>
+        <PaymentMethod />
       </section>
       <section id='buyButton'>
         <button onClick={handleSubmit(onBuy)}>Comprar</button>

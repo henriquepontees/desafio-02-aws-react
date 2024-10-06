@@ -7,67 +7,190 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 32px;
     height: 1117px;
     font-family: "Roboto";
+}
+
+#buyTitle {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 77px;
 }
 
 #buyTitle #title {
     text-align: center;
     font-weight: 800;
-    size: 32px;
+    font-size: 32px;
     line-height: 38.4px;
-    width: 244px;
-    height: 38px;
 }
 
-#buyInfo {
+#addressInfo {
+    display: flex;
+    flex-direction: column;
     width: 359px;
     height: 867px;
     gap: 12px;
 }
 
-#buyInfo section {
-/*     background-color: #F3F3F3; */
-    background-color: brown;
+#addressForm {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: none;
+    border-radius: 6px;
+    padding: 40px 10px;
+    width: 360px;
+    background-color: #F3F3F3;
 }
 
-#addressForm {
-    width: 360px;
-    height: 501px;
-    border-radius: 6px;
-    padding: 10px;
-    gap: 32px;
+#addressForm div {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 0.5fr 5fr
 }
 
 #addressTitle{
+    display: inline;
     width: 100%;
     height: 21px;
     font-weight: 400;
-    size: 16px;
-    line-height: 20.8px;
+    font-size: 16px;
 }
 
 #addressDescription {
     width: 100%;
     height: 36px;
     font-weight: 400;
-    size: 14px;
+    font-size: 14px;
     line-height: 18.2px;
+    grid-area: 2 / 2 / 2 / 2;
 }
 
-#buyInfo #addressForm form {
-    height: 324px;
-    width: 375px;
+#addressForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     gap: 16px;
 }
-
 .formInput {
-    width: 375px;
+    width: 100%;
     height: 42px;
     border-radius: 4px;
     background-color: #FAFFFD;
     border: 1px solid #BABABA;
     padding: 12px;
     gap: 4px;
+}
+
+#homeNumber {
+    width: 343px;
+    border: none;
+    display: grid;
+    height: 96px;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+}
+
+#homeSpot {
+    width: 343px;
+    border: none;
+    display: grid;
+    height: 96px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+#district {
+    grid-area: 1 / 1 / 1 / 6;
+}
+
+#city {
+    grid-area: 2 / 1 / 2 / 5;
+}
+
+#state {
+    grid-area: 2/ 5 / 2 / 6;
+}
+
+#paymentSelection {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 360px;
+    height: 354px;
+    border-radius: 6px;
+    padding: 40px 0;
+    background-color: #F3F3F3;
+}
+
+#paymentSelection #descriptionArea {
+    display: grid;
+    height: 65px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 0.5fr 5fr
+}
+
+#paymentTitle {
+    grid-area: 1 / 2 / 1 / 2;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+}
+
+#paymentDescription {
+    grid-area: 2 / 2 / 2 / 2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.2px;
+}
+
+#methodsArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 359px;
+    height: 177px;
+    gap: 12px;
+}
+
+.paymentMethod {
+    display: flex;
+    gap: 12px;
+    width: 343px;
+    height: 51px;
+    border: none;
+    border-width: 1px;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: #BABABA;
+}
+
+#buyButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 375px;
+    height: 77px;
+    border-top: solid #BABABA;
+    border-width: 1px;
+}
+
+#buyButton button {
+    width: 292px;
+    height: 45px;
+    border-radius: 16px;
+    border: none;
+    background-color: #FF8100;
+    color: white;
+    font-family: "Sofia Sans";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28.8px;
+    padding: 8px 0;
 }
