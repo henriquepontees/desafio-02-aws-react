@@ -1,4 +1,3 @@
-
 import AppRoutes from './AppRoutes';
 
 const App = () => { 
