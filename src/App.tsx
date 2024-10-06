@@ -1,3 +1,4 @@
+
 import AppRoutes from './AppRoutes';
 
 const App = () => { 
@@ -8,5 +9,4 @@ const App = () => {
         
     );
 };
-
 export default App;

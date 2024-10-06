@@ -1,0 +1,21 @@
+#button{
+    background-color: #FF8100;
+    color: white;
+    width: 292px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+}
+
+@media (min-width: 768px)
+{
+    #button{
+        width: 160px;
+        cursor: pointer;
+    }
+
+    #button:hover{    
+        box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3); 
+    }
+}
