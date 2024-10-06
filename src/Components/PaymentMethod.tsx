@@ -1,7 +1,7 @@
 import { BsCurrencyDollar } from "react-icons/bs"
 import { PiBank } from "react-icons/pi";
 import { PiCreditCard, PiMoneyLight } from "react-icons/pi"
-import { usePaymentMethod } from "../../../store/usePayMethod"
+import { usePaymentMethod } from "../store/usePayMethod"
 
 const PaymentMethod = () => {
   const {paymentMethod, setPaymentMethod} = usePaymentMethod()
