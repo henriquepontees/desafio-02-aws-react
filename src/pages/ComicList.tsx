@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/ComicList.css';
 import Spinner from '../components/Spinner.tsx';
+import LoadMoreButton from '../components/LoadMoreButton.tsx';
 
 interface Comic {
     id: number;
@@ -80,7 +81,7 @@ const ComicsList: React.FC = () => {
                             </div>
                         </div>
                     ))}
-                    <button onClick={loadMoreComics}>+ Carregar mais</button>
+                    <LoadMoreButton onClick={loadMoreComics} />
                 </div>
             )}
         </div>

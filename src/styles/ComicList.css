@@ -41,21 +41,6 @@ img
     color: #FF8100;
 }
 
-button
-{
-    background-color: #FF8100;
-    color: white;
-    width: 292px;
-    height: 45px;
-    border-radius: 20px;
-    font-size: 20px;
-    border: none;
-}
-
-button:hover{    
-    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3); 
-}
-
 @media (min-width: 768px)
 {
     #main {
@@ -75,15 +60,12 @@ button:hover{
         height: auto;
         padding: 8px;
         margin: 0px 0px 0px 0px;
+        cursor: pointer;
     }
 
     img{
         height: auto;
         width: 280px;
-    }
-
-    button{
-        width: 170px;
     }
 
     #comicInfo:hover{
