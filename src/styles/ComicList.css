@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap');
+
 body
 {
     display: flex;
     justify-content: center;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 #main
