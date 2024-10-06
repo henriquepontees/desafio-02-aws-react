@@ -1,10 +1,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import '../../styles/buy.css'
-import PaymentMethod from '../../Components/PaymentMethod'
+import '../styles/buy.css'
+import PaymentMethod from '../Components/PaymentMethod'
 import { SlLocationPin } from "react-icons/sl"
 import axios from 'axios'
-import { AddressData } from '../../types/addressData'
-import { useAddressStore } from '../../store/useAddress'
+import { AddressData } from '../types/addressData'
+import { useAddressStore } from '../store/useAddress'
 
 const Buy = () => {
   const {register, handleSubmit, setValue, setFocus} = useForm<AddressData>()

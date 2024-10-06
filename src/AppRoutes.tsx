@@ -6,7 +6,10 @@ import { Characters } from './pages/Characters';
 import { HeaderEnableValidator } from './Utils/Functions';
 import Header from './Components/Header/Header';
 import { Register } from './pages/Register';
-    
+import  Buy  from './pages/Buy';
+import { CharactersDetails } from './pages/CharactersDetails';
+import ComicsList from './pages/ComicList';
+
 
 export const AppRoutes = () => {
     return (
@@ -17,7 +20,11 @@ export const AppRoutes = () => {
                     <Route path={EnumRoutes.LOGIN} element={<Login />} />
                     <Route path={EnumRoutes.CART} element={<Cart />} />
                     <Route path={EnumRoutes.CHARACTERS} element={<Characters />} />
+                    <Route path={EnumRoutes.CHARACTERSDETAILS} element={<CharactersDetails />} />
+                    <Route path={EnumRoutes.COMICS} element={<ComicsList/>} />
                     <Route path={EnumRoutes.REGISTER} element={<Register />} />
+                    <Route path={EnumRoutes.BUY} element={<Buy />} />
+
                 </Routes>
         </BrowserRouter>
     );    

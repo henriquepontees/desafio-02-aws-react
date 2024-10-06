@@ -1,9 +1,10 @@
-
-export enum EnumRoutes  {
+export enum EnumRoutes {
     HOME = "/",
-    LOGIN = "/login", 
-    CART = "/cart",
+    LOGIN = "/login",
+    COMICS = "/ComicsList",
     CHARACTERS = "/Characters",
-    REGISTER = "/register"
-    
+    CHARACTERSDETAILS = "/CharactersDetails",
+    REGISTER = "/register",
+    BUY = "/Buy",
+    CART = "/cart"
 }
