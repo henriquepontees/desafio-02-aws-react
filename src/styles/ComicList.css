@@ -1,4 +1,78 @@
 body
 {
-    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+#main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vh;
+}
+
+#comicInfo
+{
+    width: 240px;
+    margin: 24px 59.5px 24px 59.5px;
+}
+
+img
+{
+    width: 240px;
+    height: 333px;
+    box-shadow: 0px 6px 15px 5px #0000001F;
+}
+
+#creator-year
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    font-size: 12px;    
+}
+
+#price
+{
+    width: auto;
+    height: 19px;
+    color: #FF8100;
+}
+
+@media (min-width: 768px)
+{
+    #main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 64px;
+    }
+    
+    #comicInfo{
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        height: auto;
+        padding: 8px;
+        margin: 0px 0px 0px 0px;
+        cursor: pointer;
+    }
+
+    img{
+        height: auto;
+        width: 280px;
+    }
+
+    #comicInfo:hover{
+        background-color: #FF8100;
+        color: white;
+    }
+    #comicInfo:hover #price {
+        color: black;
+    }
 }

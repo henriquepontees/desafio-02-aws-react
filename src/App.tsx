@@ -1,17 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from './pages/Login';
-import ComicsList from "./Components/ComicList";
-import Buy from "./pages/buy/Buy";
+import AppRoutes from './AppRoutes';
 
-function App() {
-
-  return <BrowserRouter>
-  <ComicsList />
-    <Routes>
-      <Route path="/" element={<Login />} />
-      
-      </Routes>
-  </BrowserRouter>;
-}
-
+const App = () => { 
+    return (
+        <>
+            <AppRoutes />
+        </>
+        
+    );
+};
 export default App;
