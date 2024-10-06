@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '/src/styles/Character.css';
 import { PUBLIC_KEY } from '../Components/Commons';
+import Spinner from '../Components/Spinner';
 
 interface Character {
   id: number;
@@ -13,6 +14,7 @@ interface Character {
 export const Characters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(true); // Estado para controle do loading
   const firstLoad = useRef(true);
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,21 +22,21 @@ export const Characters = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Começar o loading
+
       try {
-        
         const params = new URLSearchParams(location.search);
         const searchQuery = params.get('search');
 
-        
         if (firstLoad.current || searchQuery) {
-          firstLoad.current = false; 
-          setCharacters([]); 
-          setOffset(0); 
+          firstLoad.current = false;
+          setCharacters([]);
+          setOffset(0);
         }
 
         const response = await axios.get(
           `https://gateway.marvel.com:443/v1/public/characters?limit=20&offset=${offset}&apikey=${PUBLIC_KEY}${searchQuery ? `&nameStartsWith=${searchQuery}` : ''}`
-        ); 
+        );
 
         const characterData: Character[] = response.data.data.results.map((character: any) => ({
           id: character.id,
@@ -45,23 +47,26 @@ export const Characters = () => {
         setCharacters((prevCharacters) => [...prevCharacters, ...characterData]);
       } catch (err: any) {
         console.log(err);
+      } finally {
+        setLoading(false); // Terminar o loading
       }
     };
 
     fetchData();
-  }, [offset, location.search]); 
+  }, [offset, location.search]);
 
   const handleButtonClick = () => {
-    setOffset((prevOffset) => prevOffset + 20); 
+    setOffset((prevOffset) => prevOffset + 20);
   };
 
   const handleImageClick = (id: number) => {
-    storage.setItem(`idImagem`, id.toString())
+    storage.setItem(`idImagem`, id.toString());
     navigate(`${id}`);
   };
 
   return (
     <div className='charactersGrid'>
+      {loading && <Spinner />} {/* Exibir Spinner apenas enquanto está carregando */}
       <ul className="character-list">
         {characters.map((character: Character) => (
           <li key={character.id} className="character-card">
@@ -78,7 +83,9 @@ export const Characters = () => {
           </li>
         ))}
       </ul>
-      <button onClick={handleButtonClick} className='button-characters' >Carregar mais</button>
+      {!loading && characters.length > 0 && ( // Botão "Carregar mais" apenas se houver personagens
+        <button onClick={handleButtonClick} className='button-characters'>Carregar mais</button>
+      )}
     </div>
   );
 };

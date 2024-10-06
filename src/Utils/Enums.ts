@@ -1,7 +1,7 @@
 export enum EnumRoutes {
     HOME = "/",
     LOGIN = "/login",
-    COMICS = "/ComicsList",
+    ComicsList = "/ComicsList",
     CHARACTERS = "/Characters",
     CHARACTERSDETAILS = "/CharactersDetails",
     REGISTER = "/register",

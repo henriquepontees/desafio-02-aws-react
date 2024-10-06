@@ -1,5 +1,5 @@
 import { EnumRoutes } from "./Enums";
 
 export const HeaderEnableValidator = (path: string) => {
-    return path !== EnumRoutes.LOGIN && path !== EnumRoutes.REGISTER;
+    return path !== EnumRoutes.LOGIN && path !== EnumRoutes.REGISTER;   
 };
