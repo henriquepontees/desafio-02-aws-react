@@ -1,17 +1,17 @@
 import React from "react";
 import { FiLogOut } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
+import '../../styles/Header.css';
 
 export interface SideBarProps  {
     isOpen: boolean;
     toggleCallback: () => void;
+    handleLogout: () => void; 
 }
 
-const SideBar : React.FC<SideBarProps> = ({isOpen, toggleCallback}) => {
+const SideBar : React.FC<SideBarProps> = ({isOpen, toggleCallback, handleLogout}) => {
     const location = useLocation();
-    const navigate = useNavigate();
 
     return (
         <>
@@ -19,12 +19,12 @@ const SideBar : React.FC<SideBarProps> = ({isOpen, toggleCallback}) => {
                 <button className="close-btn" onClick={toggleCallback}>
                     <IoClose />
                 </button>
-                <h2>Páginas</h2>
+                <h2 className="sidebar-title">Páginas</h2>
                 <div className="sidebar-links">
                     <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>Quadrinhos</Link>
                     <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''}>Personagens</Link>
                 </div>
-                <button className="logout-btn" onClick={() => navigate('/login')}>
+                <button className="logout-btn" onClick={handleLogout}> {/* Chama a função de logout aqui */}
                     <FiLogOut style={{ marginRight: '8px' }} /> Sair
                 </button>
             </nav>

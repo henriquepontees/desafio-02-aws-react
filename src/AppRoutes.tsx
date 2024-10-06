@@ -4,9 +4,9 @@ import { Login } from './pages/Login';
 import { Cart } from './pages/Cart';
 import { Characters } from './pages/Characters';
 import { HeaderEnableValidator } from './Utils/Functions';
-import Header from './components/Header/Header';
+import Header from './Components/Header/Header';
 import { Register } from './pages/Register';
-
+    
 
 export const AppRoutes = () => {
     return (

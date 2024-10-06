@@ -5,4 +5,5 @@ export enum EnumRoutes  {
     CART = "/cart",
     CHARACTERS = "/Characters",
     REGISTER = "/register"
+    
 }

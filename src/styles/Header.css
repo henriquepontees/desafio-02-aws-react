@@ -14,10 +14,9 @@
     left: 0;
     width: 100%;
     z-index: 999; 
-    
 }
 
-.header-content {
+.header-content-mobile {
     display: flex;
     align-items: center;
     width: 100%;
@@ -35,12 +34,12 @@
 }
 
 /* Header Text */
-.h2-header {
+.sidebar-title {
     color: #BABABA;
-    padding: 10px;
-    font-size: 17px;
-    padding-top: 50px;
-    padding-bottom: 0px;
+    padding: 10px ;
+    font-size: 21px;
+    margin: 0;
+    padding-top: 40px;
 }
 
 /* Logo */
@@ -169,7 +168,7 @@
     right: 12px;
     background: none;
     border: none;
-    font-size: 25px;
+    font-size: 29px;
     cursor: pointer;
     color: #BABABA;
 }
@@ -197,14 +196,16 @@
         align-items: center;
         padding: 20px 40px;
         max-width: 97%;
+       
     }
-
+  
     .desktop-links {
         margin-top: auto;
         justify-content: center;
         margin-left: 20px;
         display: flex;
         align-items: center;
+        
     }
 
     .notification-badge {
@@ -245,6 +246,7 @@
         margin-top: 20px;
         width: 290px;
         margin-right: 20px;
+        margin-left: 20px;
     }
 
     .search-input {
@@ -281,6 +283,8 @@
     .cart-icon {
         display: none;
     }
+    
+   
 }
 
 /* Mobile Styles */
