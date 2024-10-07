@@ -4,7 +4,6 @@
     flex-flow: column nowrap;
     align-items: center;
     gap: 64px;
-    margin-top: 120px;
 }
 
 .character-list {
@@ -17,11 +16,10 @@
 }
 
 .character-image {
-    width: 20px;
-    height: 27px;
+    width: 200px;
+    height: 227px;
     object-fit: cover;
     cursor: pointer;
-
 }
 
 .character-name {

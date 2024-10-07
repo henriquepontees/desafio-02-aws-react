@@ -28,10 +28,9 @@ export const Characters = () => {
         const params = new URLSearchParams(location.search);
         const searchQuery = params.get('search');
 
-        if (firstLoad.current || searchQuery) {
+        if (firstLoad.current) {
           firstLoad.current = false;
-          setCharacters([]);
-          setOffset(0);
+          return; 
         }
 
         const response = await axios.get(

@@ -10,6 +10,7 @@ import  Buy  from './pages/Buy';
 import { CharactersDetails } from './pages/CharactersDetails';
 import ComicsList from './pages/ComicList';
 import SucessFull from './pages/SucessFull';
+import { ComicListDetails } from './pages/ComicListDetails';
 
 
 export const AppRoutes = () => {
