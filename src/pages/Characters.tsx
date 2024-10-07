@@ -83,7 +83,7 @@ export const Characters = () => {
         ))}
       </ul>
       {!loading && characters.length > 0 && ( 
-        <button onClick={handleButtonClick} className='button-characters'>Carregar mais</button>
+        <button onClick={handleButtonClick} className='button-characters'>+ Carregar mais</button>
       )}
     </div>
   );
