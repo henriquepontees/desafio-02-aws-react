@@ -9,25 +9,25 @@ const SucessFull = () => {
         {/* Placeholder */}
     </header>
     <main>
-        <section>
-            <h1>Compra realizada!</h1>
-            <p>Agora é só aguardar que logo as suas comics chegam ai!</p>
+        <section id="description">
+            <h1 id="purchargeTitle">Compra realizada!</h1>
+            <p id="purchargeDescription">Agora é só aguardar que logo as suas comics chegam ai!</p>
         </section>
         <section id="purchargeInfo">
             <section id="local">
-                <FaLocationDot />
-                <p>Entrega em <strong>Rua João Daniel Martinelli</strong>, 102 Farrapos - Porto Alegre, RS</p>
+                <FaLocationDot style={{borderRadius: "1000px", width: "32px", height: "32px", padding: "8px", backgroundColor: "#FF8100", color: "white", alignSelf: "center"}}/>
+                <p id="localDescription">Entrega em <strong>Rua João Daniel Martinelli, 102</strong> Farrapos - Porto Alegre, RS</p>
             </section>
             <section id="time">
-                <FaStopwatch />
-                <p>Previsão de entrega <strong>2 dias</strong></p>
+                <FaStopwatch style={{borderRadius: "1000px", width: "32px", height: "32px", padding: "8px", backgroundColor: "#FF8100", color: "white", alignSelf: "center"}}/>
+                <p id="timeDescription">Previsão de entrega <strong>2 dias</strong></p>
             </section>
             <section id="payment">
-                <PiCurrencyDollar />
-                <p>Pagamento na entrega <strong>Cartão de Crédito</strong></p>
+                <PiCurrencyDollar style={{borderRadius: "1000px", width: "32px", height: "32px", padding: "8px", backgroundColor: "#FF8100", color: "white", alignSelf: "center"}}/>
+                <p id="paymentDescription">Pagamento na entrega <strong>Cartão de Crédito</strong></p>
             </section>
         </section>
-        <button>Voltar para o início</button>
+        <button id="confirmButton"><span id="buttonText">Voltar para o início</span></button>
     </main>
   </>
 }
