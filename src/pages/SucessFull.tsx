@@ -10,6 +10,9 @@ const SucessFull = () => {
     const {paymentMethod} = usePaymentMethod()
 
     return <>
+        <header>
+            {/* Placeholder */}
+        </header>
         <main>
             <section id="description">
                 <h1 id="purchargeTitle">Compra realizada!</h1>
@@ -26,7 +29,7 @@ const SucessFull = () => {
                 </section>
                 <section id="payment">
                     <PiCurrencyDollar style={{borderRadius: "1000px", width: "32px", height: "32px", padding: "8px", backgroundColor: "#FF8100", color: "white", alignSelf: "center"}}/>
-                    <p id="paymentDescription">Pagamento na entrega <strong>{paymentMethod}</strong></p>
+                    <p id="paymentMethod">Pagamento na entrega <strong>{paymentMethod}</strong></p>
                 </section>
             </section>
             <button id="confirmButton"><span id="buttonText">Voltar para o início</span></button>

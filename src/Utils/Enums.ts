@@ -1,12 +1,12 @@
-export enum EnumRoutes {
-    HOME = "/",
-    LOGIN = "/login",
-    ComicsList = "/ComicsList",
-    ComicsListDETAILS = "/Comic/:id",
-    CHARACTERS = "/Characters",
-    CHARACTERSDETAILS = "/CharactersDetails",
-    REGISTER = "/register",
-    BUY = "/Buy",
-    CART = "/cart",
-    SUCESSFULL = "/Sucessfull"
-}
+export const EnumRoutes = {
+    HOME: '/',
+    LOGIN: '/login',
+    CART: '/cart',
+    CHARACTERS: '/characters',
+    CHARACTERSDETAILS: '/characters/:id',  
+    ComicsList: '/comics',
+    ComicsListDetails: '/comics/:id',  
+    REGISTER: '/register',
+    BUY: '/buy',
+    SUCESSFULL: '/success',
+};

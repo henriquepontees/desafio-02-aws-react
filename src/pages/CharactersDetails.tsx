@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/CharacterDetails.css';
+import '/src/styles/CharacterDetails.css';
 
 interface Character {
     name: string,
@@ -20,7 +20,6 @@ interface Comic {
     name: string,
     image: string,
 }
-
 
 export const CharactersDetails = () => {
   const { id } = useParams();
@@ -88,55 +87,65 @@ export const CharactersDetails = () => {
 
   return (
     <div className="character-details-container">
-      <div className="character-image-container">
-        <img src={character.image} alt={character.name} className="character-image" />
-      </div>
-      
-      <h1 className="character-name">{character.name}</h1>
 
-      <div className="character-info">
-        <div className="info-item">
-          <span>Criado em</span>
-          <p>{character.created}</p>
-        </div>
-        <div className="info-item">
-          <span>Histórias</span>
-          <p>{character.storiesNumber}</p>
-        </div>
-        <div className="info-item">
-          <span>Núm. de séries</span>
-          <p>{character.seriesNumber}</p>
-        </div>
-      </div>
-
-      <div className="character-description">
-        <h2>Descrição</h2>
-        <p>{character.description}</p>
-      </div>
-
-      <div className="character-stories">
-        <h2>Histórias</h2>
-        <div className="stories-list">
-          {character.stories.map((story) => (
-            <div className="story-item" key={story.id}>
-              <img src={story.image} alt={story.name} className="story-image" />
-              <p>{story.name}</p>
+<button className="back-button" onClick={() => window.history.back()}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+  </svg>
+  Voltar
+</button>
+        <div className='main-information-container'>
+            <div className="character-details-image-container">
+                <img src={character.image} alt={character.name} className="character-details-image" />
             </div>
-          ))}
-        </div>
-      </div>
+        
+            <div className='character-informations'>
+                <h1 className="character-details-name">{character.name}</h1>
+                              
+              <div className="info-container">
+                  <div className="info-item">
+                      <h3 className="info-title">Criado em</h3>
+                      <p className="info-value">{character.created}</p>
+                  </div>
+                  <div className="info-item">
+                      <h3 className="info-title">Histórias</h3>
+                      <p className="info-value">{character.storiesNumber}</p>
+                  </div>
+                  <div className="info-item">
+                      <h3 className="info-title">Núm. de séries</h3>
+                      <p  className="info-value">{character.seriesNumber}</p>
+                  </div>
+              </div>
 
-      <div className="character-other-comics">
-        <h2>Outros quadrinhos</h2>
-        <div className="comics-list">
-          {character.otherComics.map((comic) => (
+                    <h3 className="character-description-title">Descrição</h3>
+                    <p className="character-description">{character.description}</p>
+
+                    <div className="character-stories">
+
+                        <h3 className="character-stories-title">Histórias</h3>
+                        <div className="stories-list">
+                        {character.stories.map((story) => (
+                            <div className="story-item" key={story.id}>
+                            <img src={story.image} alt={story.name} className="story-image" />
+                            <h5 className="story-name">{story.name}</h5>
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div className="character-other-comics">
+    <h2 className="character-other-comics-title">Mais Obras</h2>
+    <div className="comics-list">
+        {character.otherComics.map((comic) => (
             <div className="comic-item" key={comic.id}>
-              <img src={comic.image} alt={comic.name} className="comic-image" />
-              <p>{comic.name}</p>
+                <img src={comic.image} alt={comic.name} className="comic-image" />
+                <h4 className="comic-name">{comic.name}</h4>
             </div>
-          ))}
-        </div>
-      </div>
+        ))}
+    </div>
+</div>
     </div>
   );
 }
