@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
 
     useEffect(() => {
         setIsCartSelected(location.pathname === '/Cart');
-        setIsSearchVisible(location.pathname !== '/Cart' && location.pathname !== '/buy' && location.pathname !== '/CharactersDetails');
+        setIsSearchVisible(location.pathname !== '/Cart' && location.pathname !== '/buy' && location.pathname !== '/CharactersDetails' );
     }, [location]);
     
 

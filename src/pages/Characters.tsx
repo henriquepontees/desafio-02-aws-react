@@ -61,9 +61,8 @@ export const Characters = () => {
 
   const handleImageClick = (id: number) => {
     storage.setItem(`idImagem`, id.toString());
-    navigate(`${id}`);
-  };
-
+    navigate(`/characters/${id}`);
+};
   return (
     <div className='charactersGrid'>
       {loading && <Spinner />} 
