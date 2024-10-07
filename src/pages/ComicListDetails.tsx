@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/ComicListDetails.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 interface Comic {
@@ -84,8 +86,41 @@ export const ComicListDetails = () => {
       }
     };
 
-    fetchData(); 
-  }, []); 
+    fetchData();
+  }, [id]);
+
+  const handleAddToCart = () => {
+    if (!comic) return;
+
+    const storedCart = localStorage.getItem('cart');
+    const cart = storedCart ? JSON.parse(storedCart) : { products: [], quantities: [] };
+
+    const productIndex = cart.products.findIndex((p: any) => p.id === comic.id);
+    if (productIndex >= 0) {
+      cart.quantities[productIndex]++;
+    } else {
+      cart.products.push({
+        id: parseInt(id!),
+        image: comic.image,
+        title: comic.title,
+        price: parseFloat(comic.price),
+      });
+      cart.quantities.push(1);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    toast.success('Produto adicionado ao carrinho!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      progressStyle: { backgroundColor: '#ff8100' }
+    });
+  };
+
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -151,7 +186,7 @@ export const ComicListDetails = () => {
             )}
   
           <div className="comic-buttons">
-            <button className="add-to-cart">Adicionar ao carrinho</button>
+            <button className="add-to-cart" onClick={handleAddToCart} >Adicionar ao carrinho</button>
             <button className="buy-now">Comprar agora</button>
           </div>
         </div>
@@ -170,6 +205,7 @@ export const ComicListDetails = () => {
           ))}
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );  
 }
