@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap');
 
-body
+.body-comic-lits
 {
+    padding-top: 124px;
+    display: flex;
     justify-content: center;
     font-family: 'Sofia Sans', sans-serif;
 }
 
-#main
+.main
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vh;
 }
 
 #comicInfo
@@ -20,11 +21,11 @@ body
     margin: 24px 59.5px 24px 59.5px;
 }
 
-img
+.img-comic
 {
     width: 240px;
-    height: 333px;
-   
+    height: 324px;
+    box-shadow: 0px 6px 15px 5px #0000001F;
 }
 
 #creator-year
@@ -43,9 +44,13 @@ img
     color: #FF8100;
 }
 
+.button-comic{
+    margin: 40px;
+}
+
 @media (min-width: 768px)
 {
-    #main {
+    .main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -54,7 +59,7 @@ img
         width: 100%;
         gap: 64px;
     }
-    
+
     #comicInfo{
         display: flex;
         flex-direction: column;
@@ -66,11 +71,10 @@ img
         gap: 8px;
     }
 
-    img{
+    .img-comic{
         height: 450px;
         width: 349px;
     }
-
     #creator-year{
         font-size: 15px;
     }
@@ -82,4 +86,5 @@ img
     #comicInfo:hover #price {
         color: black;
     }
+
 }

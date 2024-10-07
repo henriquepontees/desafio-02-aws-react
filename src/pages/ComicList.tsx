@@ -15,7 +15,7 @@ interface DateInfo {
     type: string;
     date: string;
 }
-
+ 
 interface Comic {
     id: number;
     title: string;
@@ -27,7 +27,7 @@ interface Comic {
     creators?: { items: Creator[] };
     dates?: DateInfo[];
 }
-
+ 
 const ComicsList: React.FC = () => {
     const [comics, setComics] = useState<Comic[]>([]);
     const [offset, setOffset] = useState<number>(0);
@@ -36,22 +36,22 @@ const ComicsList: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const storage = localStorage;
-
+ 
     useEffect(() => {
         const fetchComics = async () => {
             try {
                 const params = new URLSearchParams(location.search);
                 const searchQuery = params.get('search');
-
+ 
                 if (firstLoad.current) {
                     firstLoad.current = false;
-                    return; 
+                    return;
                   }
-
+ 
                 const response = await axios.get(
                     `http://gateway.marvel.com/v1/public/comics?apikey=${PUBLIC_KEY}&limit=20&offset=${offset}${searchQuery ? `&titleStartsWith=${searchQuery}` : ''}`
                 );
-
+ 
                 const comicData: Comic[] = response.data.data.results.map((comic: {
                     id: number;
                     title: string;
@@ -70,7 +70,7 @@ const ComicsList: React.FC = () => {
                     creators: comic.creators || { items: [] },
                     dates: comic.dates || [],
                 }));
-
+ 
                 setComics((prevComics) => [...prevComics, ...comicData]);
             } catch (error) {
                 setError('Erro ao buscar quadrinhos. Tente novamente mais tarde.');
@@ -91,12 +91,14 @@ const ComicsList: React.FC = () => {
     };
 
     return (
+        <div className="body-comic-lits">
+
         <div>
             {error && <div className="error-message">{error}</div>}
             {comics.length === 0 ? (
                 <Spinner />
             ) : (
-                <div id='main'>
+                <div className='main'>
                     {comics.map((comic) => {
                         const onSaleDate = comic.dates?.find(date => date.type === 'onsaleDate');
                         const creatorName = comic.creators?.items[0]?.name || 'sem registro';
@@ -104,9 +106,10 @@ const ComicsList: React.FC = () => {
 
                         return (
                             <div key={comic.id} id='comicInfo' onClick={() => handleComicClick(comic.id)}>
-                                <img 
-                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} 
-                                    alt={comic.title} 
+                                <img
+                                    className='img-comic'
+                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                    alt={comic.title}
                                 />
                                 <h3 id='title'>{comic.title}</h3>
                                 <h4 id='price'>${price}</h4>
@@ -122,6 +125,7 @@ const ComicsList: React.FC = () => {
                     <LoadMoreButton onClick={loadMoreComics} />
                 </div>
             )}
+        </div>
         </div>
     );
 };

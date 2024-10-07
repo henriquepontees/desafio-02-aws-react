@@ -7,7 +7,7 @@ interface LoadMoreButtonProps {
 
 const LoadMoreButton: React.FC<LoadMoreButtonProps> = ({ onClick }) => {
     return (
-        <button id='button' onClick={onClick}>
+        <button id='button' className='button-comic' onClick={onClick}>
             + Carregar mais
         </button>
     );

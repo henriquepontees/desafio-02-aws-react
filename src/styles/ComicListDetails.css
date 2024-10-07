@@ -6,7 +6,7 @@
     color: #333;
 }
 
-.back-button {
+.back-button-comic-list-details {
     border: none;
     background: none;
     color: #ff8100;
@@ -15,7 +15,7 @@
     margin-bottom: 20px;
 }
 
-.main-information-container {
+.main-information-container-comic-list-details {
     display: flex; 
     gap: 40px; 
     margin-bottom: 40px;
@@ -50,11 +50,11 @@
     margin-bottom: 20px;
 }
 
-.info-item {
+.info-item-comic-list-details {
     margin-bottom: 15px;
 }
 
-.info-item h3 {
+.info-item-comic-list-details h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
@@ -63,16 +63,16 @@
     margin-top: 30px;
 }
 
-.characters-list {
+.characters-list-comic-list-details {
     display: flex;
     gap: 15px;
 }
 
-.character-item {
+.character-item-comic-list-details {
     text-align: center;
 }
 
-.character-image {
+.character-image-comic-list-details {
     width: 100%;
     max-width: 100px;
     height: 100px;

@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -132,9 +133,9 @@ export const ComicListDetails = () => {
     <div className="comic-details-container">
   
       <a href="/ComicsList/">
-        <button className="back-button">Voltar</button>
+        <button className="back-button-comic-list-details">Voltar</button>
       </a>
-      <div className="main-information-container">
+      <div className="main-information-container-comic-list-details">
   
         <div className="comic-image-container">
           <img src={comic.image} alt={comic.title} className="comic-details-image" />
@@ -147,7 +148,7 @@ export const ComicListDetails = () => {
             <p>R$ {comic.price}</p>
           </div>
   
-          <div className="info-item">
+          <div className="info-item-comic-list-details">
             <h3>Publicado em</h3>
             <p>{comic.published}</p>
           </div>
@@ -170,11 +171,11 @@ export const ComicListDetails = () => {
             {comic.characters.length > 0 && (
             <div className="comic-characters">
                 <h3>Personagens da obra</h3>
-                <div className="characters-list">
+                <div className="characters-list-comic-list-details">
                 {comic.characters.map((character) => (
-                    <div className="character-item" key={character.id}>
+                    <div className="character-item-comic-list-details" key={character.id}>
                         <a href={`/Characters/${character.id}`}>
-                            <img src={character.image} alt={character.name} className="character-image" />
+                            <img src={character.image} alt={character.name} className="character-image-comic-list-details" />
                         </a>
                     <p>{character.name}</p>
                     </div>

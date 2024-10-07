@@ -5,14 +5,17 @@ import { SlLocationPin } from "react-icons/sl"
 import axios from 'axios'
 import { AddressData } from '../types/addressData'
 import { useAddressStore } from '../store/useAddress'
-
-
+import { useNavigate } from 'react-router-dom'
+ 
+ 
 const Buy = () => {
   const {register, handleSubmit, setValue, setFocus} = useForm<AddressData>()
   const {addAddress} = useAddressStore()
   const freight = (Math.random() * 27 + 3).toFixed(2)
+  const navigate = useNavigate()
   const onBuy: SubmitHandler<AddressData> = data => {
     addAddress(data)
+    navigate('/Sucessfull')
   }
   const checkCep = async (e: React.FocusEvent<HTMLInputElement>) => {
     const cep = e.target.value.replace(/\D/g, '')
@@ -25,7 +28,7 @@ const Buy = () => {
       setFocus("number")
     }).catch(err => console.log(err))
   }
-  
+ 
   return <>
     <main id='buyMain'>
       <section id='buyTitle'>
@@ -74,5 +77,5 @@ const Buy = () => {
     </main>
   </>
 }
-
+ 
 export default Buy
