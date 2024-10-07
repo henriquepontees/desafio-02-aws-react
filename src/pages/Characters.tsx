@@ -70,7 +70,7 @@ export const Characters = () => {
         {characters.map((character: Character) => (
           <li key={character.id} className="character-card">
             <div className="character-image">
-              <img
+              <img id='character-image1'
                 src={character.image}
                 alt={character.name}
                 onClick={() => handleImageClick(character.id)}
