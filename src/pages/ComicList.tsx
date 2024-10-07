@@ -43,11 +43,10 @@ const ComicsList: React.FC = () => {
                 const params = new URLSearchParams(location.search);
                 const searchQuery = params.get('search');
 
-                if (firstLoad.current || searchQuery) {
+                if (firstLoad.current) {
                     firstLoad.current = false;
-                    setComics([]);
-                    setOffset(0);
-                }
+                    return; 
+                  }
 
                 const response = await axios.get(
                     `http://gateway.marvel.com/v1/public/comics?apikey=${PUBLIC_KEY}&limit=20&offset=${offset}${searchQuery ? `&titleStartsWith=${searchQuery}` : ''}`
