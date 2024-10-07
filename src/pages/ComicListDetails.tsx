@@ -5,7 +5,6 @@ import '../styles/ComicListDetails.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 interface Comic {
     title: string,
     image: string,
@@ -86,8 +85,8 @@ export const ComicListDetails = () => {
       }
     };
 
-    fetchData();
-  }, [id]);
+    fetchData(); 
+  }, [id]); 
 
   const handleAddToCart = () => {
     if (!comic) return;
@@ -120,7 +119,6 @@ export const ComicListDetails = () => {
       progressStyle: { backgroundColor: '#ff8100' }
     });
   };
-
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -205,7 +203,7 @@ export const ComicListDetails = () => {
           ))}
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );  
 }
