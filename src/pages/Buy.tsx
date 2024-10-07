@@ -10,6 +10,7 @@ import { useAddressStore } from '../store/useAddress'
 const Buy = () => {
   const {register, handleSubmit, setValue, setFocus} = useForm<AddressData>()
   const {addAddress} = useAddressStore()
+  const freight = (Math.random() * 27 + 3).toFixed(2)
   const onBuy: SubmitHandler<AddressData> = data => {
     addAddress(data)
   }
@@ -25,12 +26,8 @@ const Buy = () => {
     }).catch(err => console.log(err))
   }
   
-
   return <>
-    <header>
-      {/* PlaceHolder */}
-    </header>
-    <main>
+    <main id='buyMain'>
       <section id='buyTitle'>
         <h1 id='title'>Finalize a compra</h1>
       </section>
@@ -58,6 +55,20 @@ const Buy = () => {
         <PaymentMethod />
       </section>
       <section id='buyButton'>
+        <section id='purchargePrices'>
+          <div id='totalCartPrice'>
+            <p id='cartPricetext'>Total de itens</p>
+            <p id='cartPrice'>R${(9).toFixed(2)}</p>
+          </div>
+          <div id='freight'>
+            <p id='freightText'>Entrega</p>
+            <p id='freightPrice'>R${freight}</p>
+          </div>
+          <div id='totalPrice'>
+            <p id='totalPriceText'>Total</p>
+            <p id='totalPurchargePrice'>R${freight + 9}</p>
+          </div>
+        </section>
         <button onClick={handleSubmit(onBuy)}>Comprar</button>
       </section>
     </main>

@@ -92,7 +92,7 @@ main {
     gap: 16px;
 }
 
-#paymentDescription {
+#paymentMethod {
     width: 155px;
     height: 42px;
     grid-area: 1 / 2 / 1 / 2;
