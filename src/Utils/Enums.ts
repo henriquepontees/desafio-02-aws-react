@@ -5,6 +5,7 @@ export const EnumRoutes = {
     CHARACTERS: '/characters',
     CHARACTERSDETAILS: '/characters/:id',  
     ComicsList: '/comics',
+    ComicsListDetails: '/comics/:id',  
     REGISTER: '/register',
     BUY: '/buy',
     SUCESSFULL: '/success',
