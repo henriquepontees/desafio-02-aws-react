@@ -9,6 +9,7 @@ import { Register } from './pages/Register';
 import  Buy  from './pages/Buy';
 import { CharactersDetails } from './pages/CharactersDetails';
 import ComicsList from './pages/ComicList';
+import SucessFull from './pages/SucessFull';
 
 
 export const AppRoutes = () => {
@@ -24,7 +25,7 @@ export const AppRoutes = () => {
                     <Route path={EnumRoutes.COMICS} element={<ComicsList/>} />
                     <Route path={EnumRoutes.REGISTER} element={<Register />} />
                     <Route path={EnumRoutes.BUY} element={<Buy />} />
-
+                    <Route path={EnumRoutes.SUCESSFULL} element={<SucessFull />} />
                 </Routes>
         </BrowserRouter>
     );    
