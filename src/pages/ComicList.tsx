@@ -92,8 +92,6 @@ const ComicsList: React.FC = () => {
 
     return (
         <div className="body-comic-lits">
-
-        <div>
             {error && <div className="error-message">{error}</div>}
             {comics.length === 0 ? (
                 <Spinner />
@@ -122,10 +120,11 @@ const ComicsList: React.FC = () => {
                             </div>
                         );
                     })}
-                    <LoadMoreButton onClick={loadMoreComics} />
+                    
                 </div>
+                
             )}
-        </div>
+            <LoadMoreButton onClick={loadMoreComics} />
         </div>
     );
 };
