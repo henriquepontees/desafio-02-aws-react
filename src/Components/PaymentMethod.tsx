@@ -14,9 +14,9 @@ const PaymentMethod = () => {
         <p id="paymentDescription">O pagamento é feito na entrega. Escolha a forma que desejar pagar.</p>
       </section>
       <section id="methodsArea">
-        <button style={paymentMethod == 'credit' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("credit")}><PiCreditCard style={{color: "#FF8100", width: '16px', height: '16px'}}/> CARTÃO DE CRÉDITO</button>
-        <button style={paymentMethod == 'debit' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("debit")}><PiBank style={{color: "#FF8100"}}/> CARTÃO DE DÉBITO</button>
-        <button style={paymentMethod == 'money' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("money")}><PiMoneyLight style={{color: "#FF8100", width: '16px', height: '16px'}}/> DINHEIRO</button>
+        <button style={paymentMethod == 'credit' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("Cartão de Crédito")}><PiCreditCard style={{color: "#FF8100", width: '16px', height: '16px'}}/> CARTÃO DE CRÉDITO</button>
+        <button style={paymentMethod == 'debit' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("Cartão de Débito")}><PiBank style={{color: "#FF8100"}}/> CARTÃO DE DÉBITO</button>
+        <button style={paymentMethod == 'money' ? {backgroundColor: '#FFE2C3', border: 'solid #FF8100'} : {backgroundColor: '#BABABA'}} className="paymentMethod" onClick={() => setPaymentMethod("Dinhero")}><PiMoneyLight style={{color: "#FF8100", width: '16px', height: '16px'}}/> DINHEIRO</button>
       </section>
     </section>
   </>
