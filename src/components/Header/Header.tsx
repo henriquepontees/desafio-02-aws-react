@@ -15,68 +15,65 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
     const [isCartSelected, setIsCartSelected] = useState<boolean>(false);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchResults] = useState<any[]>([]);
     const [cartNotification] = useState<boolean>(true);
-    const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true); 
+    const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
+    const [isSearchVisible, setIsSearchVisible] = useState<boolean>(true); 
     const location = useLocation();
     const navigate = useNavigate();
+    const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(prev => !prev);
-    };
-
-    const handleCartClick = () => {
-        navigate('/Cart');
-    };
+    const handleCartClick = () => navigate('/Cart');
 
     useEffect(() => {
         setIsCartSelected(location.pathname === '/Cart');
+        setIsSearchVisible(location.pathname !== '/Cart' && location.pathname !== '/buy' && location.pathname !== '/CharactersDetails');
     }, [location]);
+    
 
     const getPlaceholder = () => {
         switch (location.pathname) {
-            case '/comics':
-                return '          Pesquisar por título...';
+            case '/ComicsList':
+                return '              Pesquisar por título...';
             case '/characters':
-                return '          Pesquisar por nome...';
+                return '              Pesquisar por nome...';
             default:
                 return 'Pesquisar...';
         }
     };
 
-    const handleSearch = async () => {
+    const handleSearch = () => {
         if (searchQuery.trim() === '') return;
-        navigate(`/characters?search=${encodeURIComponent(searchQuery)}`);
-        setSearchQuery('');
+
+        const path = location.pathname === '/ComicsList' ? '/ComicsList' : '/characters';
+        navigate(`${path}?search=${encodeURIComponent(searchQuery)}`);
+        setSearchQuery(''); 
     };
 
-       const handleLogout = () => {
-        setIsHeaderVisible(false); 
-        navigate('/login'); 
+   
+    const handleLogout = () => {
+        setIsHeaderVisible(false);
+        navigate('/login');
     };
 
-    
-    if (isHeaderVisible && location.pathname !== '/login' && location.pathname !== '/register') {
+    if (isHeaderVisible && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/' ) {
         return (
             <>
                 <header className="header">
                     <div className="header-content-mobile">
                         <img src={logo} alt="UOL Comics" className="logo" />
-
-                        <div
-                            className={`cart-icon ${isCartSelected ? 'selected' : ''}`}
+                        <div 
+                            className={`cart-icon ${isCartSelected ? 'selected' : ''}`} 
                             onClick={handleCartClick}
                         >
                             <AiOutlineShoppingCart />
                             {cartNotification && <span className="notification-badge"></span>}
                         </div>
-
                         <div className="menu-icon" onClick={toggleSidebar}>
                             <AiOutlineMenu />
                         </div>
                     </div>
 
-                    {location.pathname !== '/Cart' && (
+                    {isSearchVisible && ( 
                         <div className="search-container">
                             <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
                             <input
@@ -91,17 +88,6 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                                     }
                                 }}
                             />
-                            {searchResults.length > 0 && (
-                                <div className="search-results">
-                                    {searchResults.map((character) => (
-                                        <div key={character.id} className="search-result-item">
-                                            <Link to={`/characters/${character.id}`}>
-                                                {character.name}
-                                            </Link>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     )}
 
@@ -110,11 +96,14 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                         onClick={toggleSidebar}
                     ></div>
 
-                    <SideBar isOpen={isSidebarOpen} toggleCallback={toggleSidebar} handleLogout={handleLogout} /> 
+                    <SideBar 
+                        isOpen={isSidebarOpen} 
+                        toggleCallback={toggleSidebar} 
+                        handleLogout={handleLogout} 
+                    />
 
-                   
                     <div className="desktop-links">
-                        <Link to="/comics" className={location.pathname === '/comics' ? 'active' : ''}>
+                        <Link to="/ComicsList" className={location.pathname === '/ComicsList' ? 'active' : ''}>
                             Quadrinhos
                         </Link>
                         <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''}>
@@ -131,13 +120,12 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                             <FiLogOut style={{ marginRight: '8px' }} /> Sair
                         </button>
                     </div>
-                    
                 </header>
             </>
         );
     }
 
-    return null; 
+    return null;
 };
 
 export default Header;

@@ -1,86 +1,125 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import '../styles/ComicList.css';
-import Spinner from '../components/Spinner.tsx';
-import LoadMoreButton from '../components/LoadMoreButton.tsx';
+import Spinner from '../components/Spinner';
+import LoadMoreButton from '../components/LoadMoreButton';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { PUBLIC_KEY } from '../Components/Commons';
+
+interface Creator {
+    name: string;
+    resourceURI: string;
+}
+
+interface DateInfo {
+    type: string;
+    date: string;
+}
 
 interface Comic {
     id: number;
     title: string;
-    description: string | null;
     thumbnail: {
         path: string;
         extension: string;
     };
-    creators: {
-        available: number;
-        items: {
-            resourceURI: string;
-            name: string;
-        }[];
-    };
-    dates: {
-        type: string;
-        date: string;
-    }[];
-    prices: {
-        type: string;
-        price: number;
-    }[];
+    prices?: { price: number }[];
+    creators?: { items: Creator[] };
+    dates?: DateInfo[];
 }
 
 const ComicsList: React.FC = () => {
-    const publicKey = 'e55560ca5e17759eb1563f995c0426de';
     const [comics, setComics] = useState<Comic[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
     const [offset, setOffset] = useState<number>(0);
-
-    const fetchComics = async (offset: number) => {
-        const url = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}&offset=${offset}`;
-        try {
-            const response = await axios.get(url);
-            console.log('Request', response.data);
-            setComics((prevComics) => [...prevComics, ...response.data.data.results]);
-            setLoading(false);
-        } catch (error) {
-            console.error('Erro ao buscar HQs:', error);
-            setLoading(false);
-        }
-    };
+    const [error, setError] = useState<string | null>(null);
+    const firstLoad = useRef(true);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const storage = localStorage;
 
     useEffect(() => {
-        fetchComics(offset);
-    }, [offset]);
+        const fetchComics = async () => {
+            try {
+                const params = new URLSearchParams(location.search);
+                const searchQuery = params.get('search');
+
+                if (firstLoad.current || searchQuery) {
+                    firstLoad.current = false;
+                    setComics([]);
+                    setOffset(0);
+                }
+
+                const response = await axios.get(
+                    `http://gateway.marvel.com/v1/public/comics?apikey=${PUBLIC_KEY}&limit=20&offset=${offset}${searchQuery ? `&titleStartsWith=${searchQuery}` : ''}`
+                );
+
+                const comicData: Comic[] = response.data.data.results.map((comic: {
+                    id: number;
+                    title: string;
+                    thumbnail: {
+                        path: string;
+                        extension: string;
+                    };
+                    prices: { price: number }[];
+                    creators: { items: Creator[] };
+                    dates: DateInfo[];
+                }) => ({
+                    id: comic.id,
+                    title: comic.title,
+                    thumbnail: comic.thumbnail,
+                    prices: comic.prices || [],
+                    creators: comic.creators || { items: [] },
+                    dates: comic.dates || [],
+                }));
+
+                setComics((prevComics) => [...prevComics, ...comicData]);
+            } catch (error) {
+                setError('Erro ao buscar quadrinhos. Tente novamente mais tarde.');
+                console.error(error);
+            }
+        };
+
+        fetchComics();
+    }, [offset, location.search]);
+
+    const handleComicClick = (id: number) => {
+        storage.setItem('idImagem', id.toString());
+        navigate(`/comic/${id}`);
+    };
 
     const loadMoreComics = () => {
-        setOffset((prevOffset) => prevOffset + 20);
+        setOffset(prevOffset => prevOffset + 20);
     };
 
     return (
         <div>
-            {loading ? (
+            {error && <div className="error-message">{error}</div>}
+            {comics.length === 0 ? (
                 <Spinner />
             ) : (
                 <div id='main'>
-                    {comics.map((comic) => (
-                        <div key={comic.id} id='comicInfo'>
-                            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.title} />
-                            <h3 id='title'>{comic.title}</h3>
-                            <h4 id='price'>${comic.prices[0]?.price}</h4>
-                            <div id='creator-year'>
-                                {comic.creators.items.length > 0 ? (
-                                    comic.creators.items.slice(0, 1).map((creator) => (
-                                        <p key={creator.resourceURI}>{creator.name}</p>
-                                    ))
-                                ) : (
-                                    <p>sem registro</p>
-                                )}
-                                <h4>
-                                    {new Date(comic.dates.find(date => date.type === 'onsaleDate')?.date ?? '').getFullYear() || 'N/A'}
-                                </h4>
+                    {comics.map((comic) => {
+                        const onSaleDate = comic.dates?.find(date => date.type === 'onsaleDate');
+                        const creatorName = comic.creators?.items[0]?.name || 'sem registro';
+                        const price = comic.prices?.[0]?.price ?? 'N/A';
+
+                        return (
+                            <div key={comic.id} id='comicInfo' onClick={() => handleComicClick(comic.id)}>
+                                <img 
+                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} 
+                                    alt={comic.title} 
+                                />
+                                <h3 id='title'>{comic.title}</h3>
+                                <h4 id='price'>${price}</h4>
+                                <div id='creator-year'>
+                                    <p>{creatorName}</p>
+                                    <h4>
+                                        {onSaleDate ? new Date(onSaleDate.date).getFullYear() : 'N/A'}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                     <LoadMoreButton onClick={loadMoreComics} />
                 </div>
             )}

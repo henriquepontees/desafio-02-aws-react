@@ -21,6 +21,7 @@ interface Comic {
     image: string,
 }
 
+
 export const CharactersDetails = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState<Character | null>(null);
