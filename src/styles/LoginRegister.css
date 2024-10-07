@@ -160,10 +160,12 @@ body{
 
     .left-section {
         width: 50%;
-        height: 100vh;
+        height: 105vh;
+        display: flex;
         background-image: url('../assets/spiderman-image.svg');
-        background-size: auto;
-        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; 
     }
 
     .main-section {
