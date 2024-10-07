@@ -69,7 +69,7 @@ export const Characters = () => {
         {characters.map((character: Character) => (
           <li key={character.id} className="character-card">
             <div className="character-image">
-              <img
+              <img id='character-image1'
                 src={character.image}
                 alt={character.name}
                 onClick={() => handleImageClick(character.id)}
@@ -82,7 +82,7 @@ export const Characters = () => {
         ))}
       </ul>
       {!loading && characters.length > 0 && ( 
-        <button onClick={handleButtonClick} className='button-characters'>Carregar mais</button>
+        <button onClick={handleButtonClick} className='button-characters'>+ Carregar mais</button>
       )}
     </div>
   );
