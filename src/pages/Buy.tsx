@@ -27,9 +27,7 @@ const Buy = () => {
   
 
   return <>
-    <header>
-      {/* PlaceHolder */}
-    </header>
+   
     <main>
       <section id='buyTitle'>
         <h1 id='title'>Finalize a compra</h1>

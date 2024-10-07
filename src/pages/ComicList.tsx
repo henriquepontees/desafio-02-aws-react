@@ -106,6 +106,7 @@ const ComicsList: React.FC = () => {
                         return (
                             <div key={comic.id} id='comicInfo' onClick={() => handleComicClick(comic.id)}>
                                 <img 
+                                    id='image'
                                     src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} 
                                     alt={comic.title} 
                                 />

@@ -161,6 +161,7 @@ body{
     .left-section {
         width: 50%;
         height: 100vh;
+        display: flex;
         background-image: url('../assets/spiderman-image.svg');
         background-size: auto;
         background-position: center;

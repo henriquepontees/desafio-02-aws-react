@@ -10,9 +10,6 @@ const SucessFull = () => {
     const {paymentMethod} = usePaymentMethod()
 
     return <>
-        <header>
-            {/* Placeholder */}
-        </header>
         <main>
             <section id="description">
                 <h1 id="purchargeTitle">Compra realizada!</h1>
