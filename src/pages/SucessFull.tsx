@@ -14,10 +14,10 @@ const SucessFull = () => {
         localStorage.setItem('cart', '')
     }
     const handleClick = () => {
-        emptyCart()
         navigate('/comic')
     }
- 
+    emptyCart()
+    
     return <>
         <main id="sucessfullMain">
             <section id="description">
