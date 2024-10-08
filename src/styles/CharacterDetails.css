@@ -1,0 +1,332 @@
+.character-details-container{ 
+    top: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    margin-top: 120px;
+}
+
+.back-button  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 700; 
+    margin-bottom: 20px;
+    margin-right: auto;
+}
+
+  
+.character-details-image {
+    width: 270px;
+    height: auto;
+    object-fit: cover;
+    margin-left: 59px;
+    border-radius: 55px 0  55px  0 ; 
+    margin-bottom: 32px;
+    box-shadow: 4px 2px 20px 8px #0000001F;
+}
+ 
+.character-details-name{
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 28px;
+    color: rgba(12, 12, 12, 1);
+    text-align: center;
+    margin-top: 0px;
+}
+
+.info-title {
+    font-size: 19px;
+    font-family: 'Sofia Sans', sans-serif;
+    color:#BABABA;
+    margin:  22px 12px 0px 12px;
+}
+.info-value {
+    font-size: 15px;
+    font-family: 'Sofia Sans', sans-serif;
+    color: rgba(12, 12, 12, 1);
+    margin:  2px 72px 0px 12px;   
+    font-weight: 700; 
+}
+
+.info-container {
+    font-size: 15px;
+    font-family: 'Sofia Sans', sans-serif;
+    color: rgba(12, 12, 12, 1);
+    width: 100%;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    justify-content: space-between;       
+}
+  
+
+.character-description-title{
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 19px;
+    color: #BABABA;
+    margin:  32px 12px 0px 12px;
+}
+.character-description {
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 15px;
+    color: #0C0C0C;
+    margin: 2px 12px 0px 12px;
+    font-weight: 700;
+}
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Seção de histórias */
+.character-stories-title{
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 19px;
+    color: #BABABA;
+   margin:  22px 0px 20px 12px; 
+}
+.character-stories {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.stories-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px;
+    font-family: 'Sofia Sans', sans-serif;
+    width: 100%; 
+    justify-items: center;
+}
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+.story-name{
+    font-size: 10px;
+    color: rgba(12, 12, 12, 1);
+    margin-top: 13px;
+    margin-left: 12px;
+}
+
+.story-image {
+    width: 80px;
+    height: 111.11px;
+    object-fit: cover;
+    margin-bottom: 3px;
+   
+}
+/* Seção de mais Obras */
+
+
+.character-other-comics {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+}
+
+.character-other-comics-title {
+    font-size: 1.5rem; 
+    color: #000000;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    font-family: 'Sofia Sans', sans-serif;
+}
+
+.comics-list {
+    display: flex;
+    gap: 10px; 
+    overflow-x: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: #ff8100 #BABABA; 
+    padding-bottom: 5px; 
+    margin-bottom: 0; 
+}
+
+
+
+
+.comic-item {
+    flex: 0 0 120px; 
+    text-align: center;
+}
+
+.comic-image {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+}
+
+.comic-name {
+    margin-top: 0.2rem;
+    font-size: 0.9rem; 
+    font-weight: bold;
+    color: #333;
+}
+@media screen and (min-width: 1220px) {
+
+
+    .back-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-family: 'Sofia Sans', sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        margin-left: -200px; 
+        position: relative; 
+        z-index: 10; 
+        top: -40px; 
+        left: 20px; 
+        z-index: 10; 
+    }
+    
+    .character-details-image {
+        width: 300px;
+        height: 431.25px;
+        object-fit: cover;
+        border-radius: 55px 0 55px 0;
+        box-shadow: 4px 2px 20px 8px #0000001F;
+        border-right: 55px;
+        border-bottom: 55px;
+        margin: 0 auto;
+    }
+    
+    .character-details-container {
+        width: 100%; 
+        max-width: 389px; 
+        height: auto; 
+        margin: 128px auto 0 auto; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center; 
+    }
+    
+    .main-information-container {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+        margin-top: -120px;
+    }
+    
+
+    
+    
+    /* Informações do personagem */
+    .character-informations {
+        flex: 1;
+        margin-left: 40px; 
+        margin-top: 10px; 
+    }
+    
+    .character-details-name {  
+        margin-right: 260px; 
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 28.8px;
+        margin-bottom: 2px;
+    }
+    
+   
+    
+    .info-item { 
+     font-size: 16px;
+     font-family: 'Sofia Sans', sans-serif;
+     width: 100%;
+     display: flex;
+     gap: 11px;
+     align-items: center;
+     justify-content: space-between;
+    }
+    
+    .info-title {
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+        margin-right:auto;
+        margin-bottom: -10px;
+    }
+    
+    .info-value {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+    
+    /* Descrição do personagem */
+    .character-description-title {
+        margin-top: 20px;
+    }
+   
+    .character-description {
+        margin-top: 20px;
+        font-size: 16px;
+        font-family: 'Sofia Sans', sans-serif;
+        font-weight: 700;
+    }
+   
+    
+    /* Histórias relacionadas */
+    .character-stories {
+        margin-top: 20px;
+        
+    }
+    
+    .stories-list {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .story-item {
+        text-align: center;
+        width: 120px;
+    }
+    
+    .story-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+       
+    }
+    
+   /* Outros quadrinhos */
+.comics-list {
+    gap: 20px; 
+    padding-bottom: 10px;
+    margin-bottom: 20px; 
+    scrollbar-color: #ff8100 #BABABA;
+}
+
+
+.comic-item {
+    flex: 0 0 150px; 
+}
+
+.comic-image {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    border-radius: 8px;
+}
+    
+}
+
+

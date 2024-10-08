@@ -1,0 +1,162 @@
+#sucessfullMain {
+    display: flex;
+    padding-top: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 881px;
+    padding: 32px 0;
+    gap: 64px;
+    font-family: "Sofia Sans";
+    margin-top: 100px;
+}
+
+#description {
+    margin: 32px;
+    width: 343px;
+    height: 136px;
+}
+
+#purchargeTitle {
+    width: 157.21px;
+    height: 84px;
+    margin: 0;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41.6px;
+}
+
+#purchargeDescription {
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+}
+ 
+#purchargeInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 343px;
+    height: 190px;
+}
+ 
+#local {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 343px;
+    height: 42px;
+}
+ 
+#localDescription {
+    width: 292px;
+    height: 42px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+    grid-area: 1 / 2 / 1 / 2;
+}
+ 
+#time {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 184.61px;
+    height: 42px;
+    gap: 16px;
+}
+ 
+#timeDescription {
+    width: 135px;
+    height: 42px;
+    margin: 0;
+    font-family: "Sofia Sans";
+    grid-area: 1 / 2 / 1 / 2;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+}
+ 
+#payment {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 204.79px;
+    height: 42px;
+    gap: 16px;
+}
+ 
+#paymentMethod {
+    width: 155px;
+    height: 42px;
+    margin: 0;
+    grid-area: 1 / 2 / 1 / 2;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+}
+ 
+#confirmButton {
+    width: 292px;
+    height: 45px;
+    padding: 8px 0px;
+    border: none;
+    border-radius: 16px;
+    background-color: #FF8100;
+   
+}
+ 
+#buttonText {
+    width: 193px;
+    height: 29px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: center;
+    color: #FAFFFD;
+}
+ 
+@media (min-width: 1024px) {
+    #sucessfullMain {
+        height: 502px;
+        padding: 32px;
+        gap: 64px;
+        font-family: "Sofia Sans";
+    }
+   
+    #description {
+        width: 552px;
+        height: 75px;
+    }
+   
+    #purchargeTitle {
+        width: 253px;
+        height: 41.45px;
+    }
+   
+    #purchargeDescription {
+        width: 552px;
+        height: 25.66px;
+    }
+   
+    #purchargeInfo {
+        width: 340px;
+    }
+   
+    #local {
+        width: 340px;
+    }
+   
+    #time {
+        width: 183px;
+    }
+   
+    #payment {
+        width: 203px;
+    }
+}
