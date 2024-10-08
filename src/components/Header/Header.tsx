@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
  
     useEffect(() => {
         const isCartPage = location.pathname === '/cart';
-        const isBuyPage = location.pathname === '/buy';
+        const isBuyPage = location.pathname === '/Buy';
         const isCharacterPage = location.pathname.toLowerCase().startsWith('/characters/');
         const isComicPage = location.pathname.toLowerCase().startsWith('/comic/');
         const isSuccessPage = location.pathname.toLowerCase().startsWith('/success');
