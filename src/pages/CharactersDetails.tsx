@@ -3,22 +3,23 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '/src/styles/CharacterDetails.css';
 import Spinner from '../components/Spinner';
+import Footer from '../Components/Footer';
 
 interface Character {
-    name: string,
-    image: string,
-    created: string,
-    storiesNumber: string,
-    seriesNumber: string,
-    description: string,
-    stories: Comic[],
-    otherComics: Comic[],
+  name: string;
+  image: string;
+  created: string;
+  storiesNumber: string;
+  seriesNumber: string;
+  description: string;
+  stories: Comic[];
+  otherComics: Comic[];
 }
 
 interface Comic {
-    id: string,
-    name: string,
-    image: string,
+  id: string;
+  name: string;
+  image: string;
 }
 
 export const CharactersDetails = () => {
@@ -29,7 +30,7 @@ export const CharactersDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); 
+      setLoading(true);
       try {
         const generalResponse = await axios.get(
           `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${apiKey}`
@@ -67,17 +68,16 @@ export const CharactersDetails = () => {
         };
 
         setCharacter(characterData);
-        setLoading(false); 
+        setLoading(false);
       } catch (err: any) {
         console.log(err);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, [id]); 
+  }, [id]);
 
-  
   if (loading) {
     return <Spinner />;
   }
@@ -146,6 +146,9 @@ export const CharactersDetails = () => {
           ))}
         </div>
       </div>
+      
+  
+      <Footer /> 
     </div>
   );
-}
+};
