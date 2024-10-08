@@ -5,6 +5,7 @@ import { LuAtSign } from "react-icons/lu";
 import { MdOutlineLock } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {
     email: string;
@@ -16,6 +17,7 @@ export const Login: React.FC = () => {
         email: '',
         password: ''
     });
+    const navigate = useNavigate();
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -24,7 +26,19 @@ export const Login: React.FC = () => {
         if (userData) {
             const { email: savedEmail, password: savedPassword } = JSON.parse(userData);
             if (loginData.email === savedEmail && loginData.password === savedPassword) {
-              toast.success('Bem-vindo a Uol Comics', {
+                toast.success('Bem-vindo a Uol Comics', {
+                position: "top-right",
+                autoClose: 3000, 
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                progressStyle: { backgroundColor: '#ff8100' },
+                onClose: () => navigate('/comic')
+                });
+            } else {
+                toast.error('Senha ou e-mail incorretos.', {
                 position: "top-right",
                 autoClose: 3000, 
                 hideProgressBar: false,
@@ -33,17 +47,6 @@ export const Login: React.FC = () => {
                 draggable: true,
                 progress: undefined,
                 progressStyle: { backgroundColor: '#ff8100' }
-              });
-            } else {
-                toast.error('Senha ou e-mail incorretos.', {
-                  position: "top-right",
-                  autoClose: 3000, 
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  progressStyle: { backgroundColor: '#ff8100' }
                 });
             }
         }

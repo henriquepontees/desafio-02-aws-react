@@ -6,6 +6,7 @@ import { MdOutlinePassword, MdOutlineLock } from "react-icons/md";
 import { LuAtSign } from "react-icons/lu";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 interface RegisterProps {
     name: string;
@@ -21,6 +22,7 @@ export const Register: React.FC = () => {
         password: '',
         confirmPassword: ''
     });
+    const navigate = useNavigate();
 
     const validateEmail = (email: string) => {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -67,7 +69,8 @@ export const Register: React.FC = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            progressStyle: { backgroundColor: '#ff8100' }
+            progressStyle: { backgroundColor: '#ff8100' },
+            onClose: () => navigate('/login')
         });
         setUserData({ name: '', email: '', password: '', confirmPassword: '' });
     };
