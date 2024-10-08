@@ -15,7 +15,7 @@ const Buy = () => {
   const navigate = useNavigate()
   const onBuy: SubmitHandler<AddressData> = data => {
     addAddress(data)
-    navigate('/Sucessfull')
+    navigate('/success')
   }
   const checkCep = async (e: React.FocusEvent<HTMLInputElement>) => {
     const cep = e.target.value.replace(/\D/g, '')

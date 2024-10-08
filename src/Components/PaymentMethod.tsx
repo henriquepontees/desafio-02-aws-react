@@ -2,10 +2,10 @@ import { BsCurrencyDollar } from "react-icons/bs"
 import { PiBank } from "react-icons/pi";
 import { PiCreditCard, PiMoneyLight } from "react-icons/pi"
 import { usePaymentMethod } from "../store/usePayMethod"
-
+ 
 const PaymentMethod = () => {
   const {paymentMethod, setPaymentMethod} = usePaymentMethod()
-
+ 
   return <>
     <section id="paymentSelection">
       <section id="descriptionArea">
@@ -21,5 +21,5 @@ const PaymentMethod = () => {
     </section>
   </>
 }
-
+ 
 export default PaymentMethod
