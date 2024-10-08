@@ -28,17 +28,17 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
         const isCartPage = location.pathname === '/Cart';
         const isBuyPage = location.pathname === '/buy';
         const isCharacterPage = location.pathname.toLowerCase().startsWith('/characters/');
-       
+        const isComicPage = location.pathname.toLowerCase().startsWith('/comic/');
+        
         setIsCartSelected(isCartPage);
-       
-     
-        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage);
+        
+        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage && !isComicPage);
     }, [location]);
    
  
     const getPlaceholder = () => {
         switch (location.pathname) {
-            case '/ComicsList':
+            case '/comic':
                 return '              Pesquisar por título...';
             case '/characters':
                 return '              Pesquisar por nome...';
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const handleSearch = () => {
         if (searchQuery.trim() === '') return;
  
-        const path = location.pathname === '/ComicsList' ? '/ComicsList' : '/characters';
+        const path = location.pathname === '/comic' ? '/comic' : '/characters';
         navigate(`${path}?search=${encodeURIComponent(searchQuery)}`);
         setSearchQuery('');
     };
