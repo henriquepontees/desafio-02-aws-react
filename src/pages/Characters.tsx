@@ -61,7 +61,8 @@ export const Characters = () => {
   const handleImageClick = (id: number) => {
     storage.setItem(`idImagem`, id.toString());
     navigate(`/characters/${id}`);
-};
+  };
+
   return (
     <div className='charactersGrid'>
       {loading && <Spinner />} 
@@ -69,14 +70,15 @@ export const Characters = () => {
         {characters.map((character: Character) => (
           <li key={character.id} className="character-card">
             <div className="character-image">
-              <img id='character-image1'
+              <img
+                className='character-image-img'
                 src={character.image}
                 alt={character.name}
                 onClick={() => handleImageClick(character.id)}
               />
             </div>
             <div className="character-name" onClick={() => handleImageClick(character.id)}>
-              <span>{character.name}</span>
+              <h1 id='character-name-text'>{character.name}</h1>
             </div>
           </li>
         ))}
