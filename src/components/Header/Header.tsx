@@ -29,10 +29,11 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
         const isBuyPage = location.pathname === '/buy';
         const isCharacterPage = location.pathname.toLowerCase().startsWith('/characters/');
         const isComicPage = location.pathname.toLowerCase().startsWith('/comic/');
+        const isSuccessPage = location.pathname.toLowerCase().startsWith('/success');
         
         setIsCartSelected(isCartPage);
         
-        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage && !isComicPage);
+        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage && !isComicPage && !isSuccessPage);
     }, [location]);
    
  

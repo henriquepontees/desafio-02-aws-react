@@ -21,7 +21,7 @@ const SideBar : React.FC<SideBarProps> = ({isOpen, toggleCallback, handleLogout}
                 </button>
                 <h2 className="sidebar-title">Páginas</h2>
                 <div className="sidebar-links">
-                    <Link to="/ComicsList" className={location.pathname === '/ComicsList' ? 'active' : ''}>Quadrinhos</Link>
+                    <Link to="/comic" className={location.pathname === '/Comic' ? 'active' : ''}>Quadrinhos</Link>
                     <Link to="/characters" className={location.pathname === '/characters' ? 'active' : ''}>Personagens</Link>
                 </div>
                 <button className="logout-btn" onClick={handleLogout}>

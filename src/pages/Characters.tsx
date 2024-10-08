@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '/src/styles/Character.css';
-import { PUBLIC_KEY } from '../Components/Commons';
-import Spinner from '../Components/Spinner';
+import { PUBLIC_KEY } from '../components/Commons';
+import Spinner from '../components/Spinner';
 
 interface Character {
   id: number;
