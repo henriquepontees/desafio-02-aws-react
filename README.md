@@ -10,7 +10,7 @@ O projeto a ser desenvolvido se chama UOL Comics. Se trata de uma plataforma de 
 /Desafio-02-AWS-REACT
 │
 ├── /public
-│   └── vite.svg             
+│   └── vite.svg   
 │
 ├── /src
 │   ├── /assets                                     # Arquivos estáticos (imagens, ícones, etc.)
