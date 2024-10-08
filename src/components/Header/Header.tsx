@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const handleCartClick = () => navigate('/cart');
  
     useEffect(() => {
-        const isCartPage = location.pathname === '/Cart';
+        const isCartPage = location.pathname === '/cart';
         const isBuyPage = location.pathname === '/buy';
         const isCharacterPage = location.pathname.toLowerCase().startsWith('/characters/');
         const isComicPage = location.pathname.toLowerCase().startsWith('/comic/');
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                             <AiOutlineMenu />
                         </div>
                     </div>
- 
+
                     {isSearchVisible && (
                         <div className="search-container">
                             <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
