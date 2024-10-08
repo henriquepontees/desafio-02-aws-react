@@ -4,7 +4,7 @@ export const EnumRoutes = {
     CART: '/cart',
     CHARACTERS: '/characters',
     CHARACTERSDETAILS: '/characters/:id',  
-    ComicsList: '/comic',
+    COMICSLIST: '/comic',
     COMICLISTDETAILS: '/comic/:id',  
     REGISTER: '/register',
     BUY: '/buy',

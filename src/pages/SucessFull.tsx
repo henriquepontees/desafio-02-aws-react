@@ -10,10 +10,14 @@ const SucessFull = () => {
     const {addressData} = useAddressStore()
     const {paymentMethod} = usePaymentMethod()
     const navigate = useNavigate()
-    const handleClick = () => {
-        navigate('/ComicsList')
+    const emptyCart = () => {
+        localStorage.setItem('cart', '')
     }
-
+    const handleClick = () => {
+        navigate('/comic')
+    }
+    emptyCart()
+    
     return <>
         <main id="sucessfullMain">
             <section id="description">

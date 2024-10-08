@@ -77,10 +77,11 @@ body{
     width: 295px;
     height: 35px;
     border-radius: 31px;
-    border: none;
     background-color: rgba(243, 243, 243, 1);
     font-family: 'Sofia Sans', sans-serif;
     text-align: left;
+    outline: none;
+    border: none;
 }
 
 ::-webkit-input-placeholder {

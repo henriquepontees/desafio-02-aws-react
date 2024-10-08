@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { CartItem } from '../Components/Cart/CartItem';
-import { EmptyCart } from '../Components/Cart/EmptyCart';
+import { CartItem } from '../components/Cart/CartItem';
+import { EmptyCart } from '../components/Cart/EmptyCart';
 import '../styles/Cart.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Cart = () => {
     const [products, setProducts] = useState<{ id: number, image: string, title: string, price: number }[]>([]);
     const [quantities, setQuantities] = useState<number[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
@@ -61,6 +63,10 @@ export const Cart = () => {
         });
     };
 
+    const handleBuy = () => {
+        navigate('/Buy');
+    };
+
     if (products.length === 0) {
         return <EmptyCart />;
     }
@@ -83,7 +89,7 @@ export const Cart = () => {
                 ))}
             </main>
             <footer className="footer">
-                <button className="buy-button">Comprar</button>
+                <button className="buy-button" onClick={handleBuy} >Comprar</button>
             </footer>
             <ToastContainer />
         </div>

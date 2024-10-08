@@ -13,13 +13,13 @@
     font-family: "Sofia Sans";
     margin-top: 100px;
 }
-
+ 
 #description {
     margin: 32px;
     width: 343px;
     height: 136px;
 }
-
+ 
 #purchargeTitle {
     width: 157.21px;
     height: 84px;
@@ -28,7 +28,7 @@
     font-size: 32px;
     line-height: 41.6px;
 }
-
+ 
 #purchargeDescription {
     width: 100%;
     height: 52px;
@@ -107,6 +107,7 @@
     padding: 8px 0px;
     border: none;
     border-radius: 16px;
+    cursor: pointer;
     background-color: #FF8100;
    
 }
@@ -124,7 +125,7 @@
 @media (min-width: 1024px) {
     #sucessfullMain {
         height: 502px;
-        padding: 32px;
+        padding: 0 32px;
         gap: 64px;
         font-family: "Sofia Sans";
     }

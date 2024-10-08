@@ -6,28 +6,51 @@ import axios from 'axios'
 import { AddressData } from '../types/addressData'
 import { useAddressStore } from '../store/useAddress'
 import { useNavigate } from 'react-router-dom'
- 
+import { useEffect, useState } from 'react'
  
 const Buy = () => {
   const {register, handleSubmit, setValue, setFocus} = useForm<AddressData>()
+  const [cep, setCep] = useState<string>('')
   const {addAddress} = useAddressStore()
-  const freight = (Math.random() * 27 + 3).toFixed(2)
+  const freight = parseInt((Math.random() * 27 + 3).toFixed(2))
+ 
+  const cartTotalPrice = () => {
+    const getCartItems = localStorage.getItem('cart')
+    if (getCartItems) {
+      const cartItems = JSON.parse(getCartItems)
+      let totalPrice = 0
+      for (let i = 0; i < (cartItems.products).length; i++) {
+        totalPrice += (cartItems.products[i].price * cartItems.quantities[i])
+      }
+      return parseInt(totalPrice.toFixed(2))
+    } else return 0
+  }
   const navigate = useNavigate()
+ 
   const onBuy: SubmitHandler<AddressData> = data => {
     addAddress(data)
     navigate('/success')
   }
-  const checkCep = async (e: React.FocusEvent<HTMLInputElement>) => {
-    const cep = e.target.value.replace(/\D/g, '')
-    if (!e.target.value) return
-    await axios.get(`https://viacep.com.br/ws/${cep}/json/`).then(res => {
-      setValue("street", res.data.logradouro)
-      setValue("district", res.data.bairro)
-      setValue("city", res.data.localidade)
-      setValue("state", res.data.uf)
-      setFocus("number")
-    }).catch(err => console.log(err))
+ 
+  const checkCep = (e: React.FocusEvent<HTMLInputElement>) => {
+    setCep(e.target.value.replace(/\D/g, ''))
   }
+ 
+  useEffect(() => {
+    const fetchAdress = async () => {
+      if (!cep) return
+      else {
+        await axios.get(`https://viacep.com.br/ws/${cep}/json/`).then(res => {
+          setValue("street", res.data.logradouro)
+          setValue("district", res.data.bairro)
+          setValue("city", res.data.localidade)
+          setValue("state", res.data.uf)
+          setFocus("number")
+        }).catch(err => console.log(err))
+      }
+    }
+    fetchAdress()
+  }, [cep, setFocus, setValue])
  
   return <>
     <main id='buyMain'>
@@ -61,15 +84,15 @@ const Buy = () => {
         <section id='purchargePrices'>
           <div id='totalCartPrice'>
             <p id='cartPricetext'>Total de itens</p>
-            <p id='cartPrice'>R${(9).toFixed(2)}</p>
+            <p id='cartPrice'>R${cartTotalPrice()}</p>
           </div>
           <div id='freight'>
             <p id='freightText'>Entrega</p>
-            <p id='freightPrice'>R${freight}</p>
+            <p id='freightPrice'>R${freight.toFixed(2)}</p>
           </div>
           <div id='totalPrice'>
             <p id='totalPriceText'>Total</p>
-            <p id='totalPurchargePrice'>R${freight + 9}</p>
+            <p id='totalPurchargePrice'>R${freight + cartTotalPrice()}</p>
           </div>
         </section>
         <button onClick={handleSubmit(onBuy)}>Comprar</button>

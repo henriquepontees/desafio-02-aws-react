@@ -3,7 +3,7 @@
 .h1-cart-title {
     text-align: center;
     font-size: 32px;
-    padding-top: 60px;
+    padding-top: 100px;
     margin-bottom: 43px;
     color: rgba(12, 12, 12, 1);
     font-family: 'Sofia Sans', sans-serif;
@@ -57,6 +57,9 @@
     background-color: white;
     border-radius: 30px;
     margin-bottom: 32.36px;
+    width: 117px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .decrement, .increment {

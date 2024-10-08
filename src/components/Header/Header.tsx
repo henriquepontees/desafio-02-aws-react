@@ -25,20 +25,21 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const handleCartClick = () => navigate('/cart');
  
     useEffect(() => {
-        const isCartPage = location.pathname === '/Cart';
-        const isBuyPage = location.pathname === '/buy';
+        const isCartPage = location.pathname === '/cart';
+        const isBuyPage = location.pathname === '/Buy';
         const isCharacterPage = location.pathname.toLowerCase().startsWith('/characters/');
-       
+        const isComicPage = location.pathname.toLowerCase().startsWith('/comic/');
+        const isSuccessPage = location.pathname.toLowerCase().startsWith('/success');
+        
         setIsCartSelected(isCartPage);
-       
-     
-        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage);
+        
+        setIsSearchVisible(!isCartPage && !isBuyPage && !isCharacterPage && !isComicPage && !isSuccessPage);
     }, [location]);
    
  
     const getPlaceholder = () => {
         switch (location.pathname) {
-            case '/ComicsList':
+            case '/comic':
                 return '              Pesquisar por título...';
             case '/characters':
                 return '              Pesquisar por nome...';
@@ -50,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
     const handleSearch = () => {
         if (searchQuery.trim() === '') return;
  
-        const path = location.pathname === '/ComicsList' ? '/ComicsList' : '/characters';
+        const path = location.pathname === '/comic' ? '/comic' : '/characters';
         navigate(`${path}?search=${encodeURIComponent(searchQuery)}`);
         setSearchQuery('');
     };
@@ -78,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ enabled = false }) => {
                             <AiOutlineMenu />
                         </div>
                     </div>
- 
+
                     {isSearchVisible && (
                         <div className="search-container">
                             <RxMagnifyingGlass className="search-icon" onClick={handleSearch} />
