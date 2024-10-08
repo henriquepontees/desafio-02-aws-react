@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../styles/ComicListDetails.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Spinner from '../Components/Spinner';
 interface Comic {
     title: string,
     image: string,
@@ -122,7 +122,7 @@ export const ComicListDetails = () => {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <Spinner />;
   }
 
   if (!comic) {
