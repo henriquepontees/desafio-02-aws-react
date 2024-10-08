@@ -101,6 +101,14 @@
     gap: 4px;
 }
  
+#cep {
+    color: rgba(0, 0, 0, 0.363);
+}
+ 
+#cep:focus {
+    color: black;
+}
+ 
 #homeNumber {
     width: 343px;
     border: none;
