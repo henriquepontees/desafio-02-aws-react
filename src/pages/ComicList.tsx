@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import '../styles/ComicList.css';
-import Spinner from '../components/Spinner';
-import LoadMoreButton from '../components/LoadMoreButton';
+import Spinner from '../Components/Spinner';
+import LoadMoreButton from '../Components/LoadMoreButton';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PUBLIC_KEY } from '../Components/Commons';
 
@@ -113,7 +113,7 @@ const ComicsList: React.FC = () => {
                                 <h4 id='price'>${price}</h4>
                                 <div id='creator-year'>
                                     <p>{creatorName}</p>
-                                    <h4>
+                                    <h4 className='year'>
                                         {onSaleDate ? new Date(onSaleDate.date).getFullYear() : 'N/A'}
                                     </h4>
                                 </div>
