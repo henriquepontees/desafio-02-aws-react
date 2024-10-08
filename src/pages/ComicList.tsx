@@ -4,7 +4,7 @@ import '../styles/ComicList.css';
 import Spinner from '../components/Spinner';
 import LoadMoreButton from '../components/LoadMoreButton';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { PUBLIC_KEY } from '../Components/Commons';
+import { PUBLIC_KEY } from '../components/Commons';
 
 interface Creator {
     name: string;

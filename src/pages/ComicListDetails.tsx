@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../styles/ComicListDetails.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Spinner from '../Components/Spinner';
+import Spinner from '../components/Spinner';
 interface Comic {
     title: string,
     image: string,

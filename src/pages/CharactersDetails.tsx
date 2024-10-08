@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '/src/styles/CharacterDetails.css';
-import Spinner from '../Components/Spinner';
+import Spinner from '../components/Spinner';
 
 interface Character {
     name: string,

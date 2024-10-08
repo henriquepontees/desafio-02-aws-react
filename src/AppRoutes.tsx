@@ -23,7 +23,7 @@ export const AppRoutes = () => {
                     <Route path={EnumRoutes.CART} element={<Cart />} />
                     <Route path={EnumRoutes.CHARACTERS} element={<Characters />} />
                     <Route path={EnumRoutes.CHARACTERSDETAILS} element={<CharactersDetails />} />
-                    <Route path={EnumRoutes.ComicsList} element={<ComicsList/>} />
+                    <Route path={EnumRoutes.COMICSLIST} element={<ComicsList/>} />
                     <Route path={EnumRoutes.COMICLISTDETAILS} element={<ComicListDetails />} />
                     <Route path={EnumRoutes.REGISTER} element={<Register />} />
                     <Route path={EnumRoutes.BUY} element={<Buy />} />
