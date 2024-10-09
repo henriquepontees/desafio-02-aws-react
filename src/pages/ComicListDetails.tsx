@@ -5,7 +5,8 @@ import axios from 'axios';
 import '../styles/ComicListDetails.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Spinner from '../components/Spinner';
+import Spinner from '../Components/Spinner';
+import Footer from '../Components/Footer';
 interface Comic {
     title: string,
     image: string,
@@ -204,6 +205,7 @@ export const ComicListDetails = () => {
           ))}
         </div>
       </div>
+      <Footer />
       <ToastContainer />
     </div>
   );  

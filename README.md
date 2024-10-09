@@ -10,40 +10,83 @@ O projeto a ser desenvolvido se chama UOL Comics. Se trata de uma plataforma de 
 /Desafio-02-AWS-REACT
 │
 ├── /public
-│   └── index.html              # Arquivo principal HTML
+│   └── vite.svg             
 │
 ├── /src
-│   ├── /assets                 # Arquivos estáticos (imagens, ícones, etc.)
+│   ├── /assets                                     # Arquivos estáticos (imagens, ícones, etc.)
+│   │   ├──cart.svg                                 # Página de carrinho vazio
+│   │   ├──fluent_ios-arrow-24-filled.svg
+│   │   ├──logo-uol-comics.svg
+│   │   ├──R.gif
+│   │   └──spiderman-image.svg
+│   │            
 │   ├── /components
-│   │   ├── /Header             # Task do Header
-│   │   ├── /Login              # Componentes relacionados ao Login
-│   │   ├── /Register           # Componentes relacionados ao Register
-│   │   ├── /Comics
-│   │   │   ├── /Details        # Comics Details
-│   │   │   ├── /List           # Comics List
-│   │   ├── /Characters
-│   │   │   ├── /Details        # Character Details
-│   │   │   ├── /List           # Characters List
-│   │   ├── /Cart
-│   │   │   ├── /CartVazio      # Página de carrinho vazio
-│   │   │   └── Cart.js         # Página do carrinho com itens
-│   │   ├── /Buy
-│   │   │   ├── /Successful     # Página de compra bem-sucedida
-│   │   │   └── Buy.js          # Página de compra
-│   │   └── App.js              # Arquivo principal da aplicação
-│   │
-│   ├── /services               # Serviços como API, autenticação com JWT, etc.
-│   │   ├── api.js              # Configuração de APIs (e.g., axios, json-server)
-│   │   └── auth.js             # Serviços de autenticação (login, registro)
-│   │
-│   ├── /styles                 # Arquivos de estilo (CSS/SASS)
-│   │   ├── global.css          # Estilos globais
-│   │   └── components.css      # Estilos dos componentes
-│   │
-│   └── index.js                # Arquivo principal do React (ponto de entrada)
+│   │   ├──/Cart
+│   │   │   ├──Cartitem.tsx
+│   │   │   └──EmptyCart.tsx
+│   │   │
+│   │   ├── /Header                                  # Task do Header
+│   │   │   ├──Header.tsx
+│   │   │   └──SideBar.tsx
+│   │   │
+│   │   ├──Commons.ts
+│   │   ├──LoadMoreButton.tsx
+│   │   ├──PaymentMethod.tsx
+│   │   └──Spinner.tsx
+│   │   
+│   ├──/pages
+│   │   ├──Buy.tsx                                  # Página de compra
+│   │   ├──Cart.tsx                                 # Página do carrinho com itens
+│   │   ├──Characters.tsx                           # Characters List
+│   │   ├──CharactersDetails.tsx                    # Character Details
+│   │   ├──ComicList.tsx                            # Comics List
+│   │   ├──ComicListDetails.tsx                     # Comics Details
+│   │   ├──Login.tsx                                # Componentes relacionados ao Login
+│   │   ├──Register.tsx                             # Componentes relacionados ao Register
+│   │   └──SucessFull.tsx                           # Página de compra bem-sucedida
+│   │   
+│   ├──/store
+│   │   ├──useAddress.tsx
+│   │   └──usePayMethod.ts
+│   │   
+│   ├──/styles                                      # Arquivos de estilo (CSS/SASS)
+│   │   ├──Buy.css
+│   │   ├──Cart.css
+│   │   ├──Characters.css
+│   │   ├──CharactersDetails.css
+│   │   ├──ComicList.css
+│   │   ├──ComicListDetails.css
+│   │   ├──global.css                               # Estilos globais
+│   │   ├──Header.css
+│   │   ├──LoadMoreButton.css
+│   │   ├──LoginRegister.css
+│   │   ├──Spinner.css
+│   │   └──sucessFull.css
+│   │   
+│   ├──/types
+│   │   ├──addressData.ts
+│   │   ├──addressStore.ts
+│   │   └──paymentStore.ts
+│   │   
+│   ├──/Utils
+│   │   ├──Enums.ts
+│   │   ├──Functions.ts
+│   │   └──Types.ts
+│   │   
+│   ├──App.tsx                                      # Arquivo principal da aplicação
+│   ├──AppRoutes.tsx
+│   └──main.tsx
 │
-├── package.json                # Dependências e scripts do projeto
-└── README.md                   # Documentação do projeto
+├──.gitignore
+├──eslint.config.js
+├──index.html                                       # Arquivo principal HTML
+├──package-lock.json
+├──package.json                                     # Dependências e scripts do projeto
+├──README.md                                        # Documentação do projeto
+├──tsconfig.app.json
+├──tsconfig.json
+├──tsconfig.node.json
+├──vite.config.ts             
 ```
 
 
