@@ -4,7 +4,7 @@ import { Login } from './pages/Login';
 import { Cart } from './pages/Cart';
 import { Characters } from './pages/Characters';
 import { HeaderEnableValidator } from './Utils/Functions';
-import Header from './Components/Header/Header';
+import Header from './components/Header/Header';
 import { Register } from './pages/Register';
 import  Buy  from './pages/Buy';
 import { CharactersDetails } from './pages/CharactersDetails';

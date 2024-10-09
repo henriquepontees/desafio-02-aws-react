@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '/src/styles/CharacterDetails.css';
 import Spinner from '../components/Spinner';
-import Footer from '../Components/Footer';
+import Footer from '../components/Footer';
 
 interface Character {
   name: string;

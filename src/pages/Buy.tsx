@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import '../styles/buy.css'
-import PaymentMethod from '../Components/PaymentMethod'
+import PaymentMethod from '../components/PaymentMethod'
 import { SlLocationPin } from "react-icons/sl"
 import axios from 'axios'
 import { AddressData } from '../types/addressData'
