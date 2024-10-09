@@ -87,22 +87,19 @@ export const CharactersDetails = () => {
   }
 
   return (
-    <div className="character-details-container">
+    <main className="character-details-container">
       <button className="back-button" onClick={() => window.history.back()}>
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
         </svg>
         Voltar
       </button>
-
-      <div className="main-information-container">
-        <div className="character-details-image-container">
+      <section className="main-information-container">
+        <figure className="character-details-image-container">
           <img src={character.image} alt={character.name} className="character-details-image" />
-        </div>
-
+        </figure>
         <div className="character-informations">
-          <h1 className="character-details-name">{character.name}</h1>
-
+        <h1 className="character-details-name">{character.name}</h1>
           <div className="info-container">
             <div className="info-item">
               <h3 className="info-title">Criado em</h3>
@@ -121,7 +118,7 @@ export const CharactersDetails = () => {
           <h3 className="character-description-title">Descrição</h3>
           <p className="character-description">{character.description}</p>
 
-          <div className="character-stories">
+          <section className="character-stories">
             <h3 className="character-stories-title">Histórias</h3>
             <div className="stories-list">
               {character.stories.map((story) => (
@@ -131,11 +128,11 @@ export const CharactersDetails = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </section>
 
-      <div className="character-other-comics">
+      <section className="character-other-comics">
         <h2 className="character-other-comics-title">Mais Obras</h2>
         <div className="comics-list">
           {character.otherComics.map((comic) => (
@@ -145,10 +142,9 @@ export const CharactersDetails = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
       
-  
       <Footer /> 
-    </div>
+    </main>
   );
 };
