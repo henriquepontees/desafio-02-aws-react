@@ -7,6 +7,7 @@
     text-align: left;
     color: rgba(255, 129, 0, 1);
     margin-left: 3.2%;
+    width: 90%;
 }
 
 .comic-details-container-comic { 
@@ -14,9 +15,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%; 
     margin-top: 120px;
+    padding: 10px;
+
 }
 
 .comic-image-container-comic {
@@ -67,6 +69,7 @@
     grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
     justify-items: flex-start;
+    width: 90%;
 }
 
 .character-list-title-comic {
@@ -87,6 +90,7 @@
     font-family: 'Sofia Sans', sans-serif;
     width: 100%; 
     justify-items: flex-start;
+
 }
 
 .character-item-comic {
@@ -167,6 +171,7 @@
     font-weight: 800;
     margin: 0px;
     margin-left: 3.2%;
+    width: 90%;
 }
 
 .other-comics-section-comic{
@@ -174,8 +179,53 @@
     flex-direction: column;
     width: 95%;
 }
+.comic-characters-comic{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
 
+.comic-buttons-comic {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 16px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .add-to-cart-button-comic, .buy-now-button-comic {
+    flex: 1;
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    border-radius: 16px;
+    padding: 8px;
+    margin-top: 10px;
+    
+  }
+  
+  .add-to-cart-button-comic {
+    background-color: white;
+    color: black;
+    border: 1.4px solid black;
 
+  }
+  
+  .buy-now-button-comic {
+    background-color: rgba(255, 129, 0, 1);
+    color: #fff;
+    border: 1.4px solid rgba(255, 129, 0, 1);
+  }
+  
+
+  .comic-informations-comic{
+    width: 90%;
+    margin: auto;
+  }
 
 
 @media (min-width: 1024px) {
@@ -239,7 +289,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 90%;
         margin-top: -120px;
     }
 
@@ -273,6 +323,7 @@
         justify-items: center;
         width: 70%;
         height: 100px;
+        padding: 5px;
     }
 
     .character-image-comic {
@@ -292,9 +343,6 @@
 
     }
 
-    .comic-informations-comic{
-
-    }
 
     .comic-buttons-comic {
         display: flex;
@@ -313,6 +361,7 @@
         justify-content: space-evenly;
         gap: 16px;
         margin-top: 20px;
+        flex-direction: row;
       }
       
       .add-to-cart-button-comic, .buy-now-button-comic {

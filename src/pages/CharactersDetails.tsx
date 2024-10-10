@@ -87,63 +87,69 @@ export const CharactersDetails = () => {
   }
 
   return (
-    <main className="character-details-container">
-      <button className="back-button" onClick={() => window.history.back()}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Voltar
-      </button>
-      <section className="main-information-container">
-        <figure className="character-details-image-container">
-          <img src={character.image} alt={character.name} className="character-details-image" />
+    <main className="character-character-details-container">
+      <section className="character-button-section">
+        <button className="character-back-button" onClick={() => window.history.back()}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Voltar
+        </button>
+      </section>
+      <section className="character-main-information-container">
+        <figure className="character-character-details-image-container">
+          <img src={character.image} alt={character.name} className="character-character-details-image" />
         </figure>
-        <div className="character-informations">
-        <h1 className="character-details-name">{character.name}</h1>
-          <div className="info-container">
-            <div className="info-item">
-              <h3 className="info-title">Criado em</h3>
-              <p className="info-value">{character.created}</p>
+        <div className="character-character-informations">
+        <h1 className="character-character-details-name">{character.name}</h1>
+          <div className="character-info-container">
+            <div className="character-info-item">
+              <h3 className="character-info-title">Criado em</h3>
+              <p className="character-info-value">{character.created}</p>
             </div>
-            <div className="info-item">
-              <h3 className="info-title">Histórias</h3>
-              <p className="info-value">{character.storiesNumber}</p>
+            <div className="character-info-item">
+              <h3 className="character-info-title">Histórias</h3>
+              <p className="character-info-value">{character.storiesNumber}</p>
             </div>
-            <div className="info-item">
-              <h3 className="info-title">Núm. de séries</h3>
-              <p className="info-value">{character.seriesNumber}</p>
+            <div className="character-info-item">
+              <h3 className="character-info-title">Núm. de séries</h3>
+              <p className="character-info-value">{character.seriesNumber}</p>
             </div>
           </div>
 
-          <h3 className="character-description-title">Descrição</h3>
-          <p className="character-description">{character.description}</p>
+          <h3 className="character-character-description-title">Descrição</h3>
+          <p className="character-character-description">{character.description}</p>
 
-          <section className="character-stories">
-            <h3 className="character-stories-title">Histórias</h3>
-            <div className="stories-list">
+          <section className="character-character-characters">
+            <h3 className="character-character-stories-title">Histórias</h3>
+            <div className="character-characters-list">
               {character.stories.map((story) => (
-                <div className="story-item" key={story.id}>
-                  <img src={story.image} alt={story.name} className="story-image" />
-                  <h5 className="story-name">{story.name}</h5>
+                <div className="character-character-item" key={story.id}>
+                  <a href={`/comic/${story.id}`} className='a-character' >
+                  <img src={story.image} alt={story.name} className="character-character-image" />
+                  </a>
+                  <h5 className="character-character-name">{story.name}</h5>
                 </div>
               ))}
             </div>
           </section>
         </div>
       </section>
-
-      <section className="character-other-comics">
-        <h2 className="character-other-comics-title">Mais Obras</h2>
-        <div className="comics-list">
+      
+      <section className="other-comics-section-comic">
+        <h2 className="other-comics-title-comic">Mais obras</h2>
+        <div className="other-comics-list-comic">
           {character.otherComics.map((comic) => (
-            <div className="comic-item" key={comic.id}>
-              <img src={comic.image} alt={comic.name} className="comic-image" />
-              <h4 className="comic-name">{comic.name}</h4>
+            <div className="other-comic-item-comic" key={comic.id}>
+              <a href={`/Comic/${comic.id}`}>
+                <img src={comic.image} alt={comic.name} className="other-comic-image-comic" />
+              </a>
+              <h4 className="other-comic-name-comic">{comic.name}</h4>
             </div>
           ))}
         </div>
       </section>
-      
+
       <Footer /> 
     </main>
   );

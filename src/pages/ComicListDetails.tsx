@@ -134,12 +134,12 @@ export const ComicListDetails = () => {
   return (
     <main className="comic-details-container-comic">
       <section className="button-section-comic">
-      <button className="back-button-comic" onClick={() => window.history.back()}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Voltar
-      </button>
+        <button className="back-button-comic" onClick={() => window.history.back()}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Voltar
+        </button>
       </section>
       <section className="main-information-container-comic">
         <figure className="comic-image-container-comic">
