@@ -1,14 +1,35 @@
-.comic-details-container{
+.info-price-comic{
+
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 19.2px;
+    text-align: left;
+    color: rgba(255, 129, 0, 1);
+    margin-left: 3.2%;
+}
+
+.comic-details-container-comic { 
     top: 50px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 100%; 
     margin-top: 120px;
 }
- 
-.back-button  {
+
+.comic-image-container-comic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-section-comic{
+    width: 100%;
+}
+
+.back-button-comic {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,192 +38,203 @@
     background-color: transparent;
     font-family: 'Sofia Sans', sans-serif;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 700; 
     margin-bottom: 20px;
     margin-right: auto;
 }
- 
-.comic-details-image {
-    width: 270px;
-    height: auto;
-    object-fit: cover;
-    margin-left: 59px;
-    border-radius: 55px 0  55px  0 ;
-    margin-bottom: 32px;
-    box-shadow: 4px 2px 20px 8px #0000001F;
-}
- 
-.comic-details-title{
-    font-family: 'Sofia Sans', sans-serif;
-    font-size: 28px;
-    color: rgba(12, 12, 12, 1);
-    text-align: center;
-    margin-top: 0px;
-}
- 
-.info-title {
+
+.info-title-comic {
     font-size: 19px;
     font-family: 'Sofia Sans', sans-serif;
-    color:#BABABA;
-    margin:  22px 12px 0px 12px;
+    color: #BABABA;
+    margin: 22px 12px 0px 12px;
 }
- 
-.info-value {
+
+.info-value-comic {
     font-size: 15px;
     font-family: 'Sofia Sans', sans-serif;
     color: rgba(12, 12, 12, 1);
-    margin:  2px 72px 0px 12px;  
-    font-weight: 700;
+    margin: 2px 72px 0px 12px;   
+    font-weight: 700; 
 }
- 
-.info-container {
+
+.info-container-comic {
     font-size: 15px;
     font-family: 'Sofia Sans', sans-serif;
     color: rgba(12, 12, 12, 1);
     width: 100%;
-    display: flex;
-    gap: 11px;
-    align-items: center;
-    justify-content: space-between;      
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    justify-items: flex-start;
 }
- 
-.info-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
- 
-.character-stories-title{
+
+.character-list-title-comic {
     font-family: 'Sofia Sans', sans-serif;
     font-size: 19px;
     color: #BABABA;
-   margin:  22px 0px 20px 12px;
+    margin: 22px 0px 20px 12px;
 }
-.character-stories {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+.a-comic-comic{
+    margin-left: 15%;
 }
- 
-.stories-list {
+
+.characters-list-comic {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     gap: 16px;
     font-family: 'Sofia Sans', sans-serif;
-    width: 100%;
-    justify-items: center;
+    width: 100%; 
+    justify-items: flex-start;
 }
- 
-.story-item {
+
+.character-item-comic {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 32px;
 }
-.story-name{
+
+.character-name-comic {
+    font-family: 'Sofia Sans', sans-serif;
     font-size: 10px;
-    color: rgba(12, 12, 12, 1);
-    margin-top: 13px;
+    font-weight: 700;
+    line-height: 9.6px;  
+    margin-top: 8px;
     margin-left: 12px;
+    width: 100%;
 }
- 
-.story-image {
+
+.character-image-comic {
     width: 80px;
-    height: 111.11px;
+    height: 90.96px;
+    gap: 0px;
+    border-radius: 24px 0px 24px 0px;
+    opacity: 0px;    
     object-fit: cover;
     margin-bottom: 3px;
-   
 }
- 
-.other-comics-section {
-    display: flex;
-    flex-direction: column;
-    width: 900px;
-}
- 
-.other-comics-title {
-    font-size: 1.5rem;
+
+.other-comics-title-comic {
+    font-size: 1.5rem; 
     color: #000000;
     margin-bottom: 20px;
     margin-left: 12px;
     font-family: 'Sofia Sans', sans-serif;
 }
- 
-.other-comics-list {
+
+.other-comics-list-comic {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #ff8100 #BABABA;
-    padding-bottom: 5px;
-    margin-bottom: 0;
+    gap: 10px; 
+    overflow-x: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: rgba(255, 129, 0, 1) #BABABA; 
+    padding-bottom: 5px; 
+    margin-bottom: 0; 
 }
- 
- 
- 
- 
-.other-comic-item {
-    flex: 0 0 120px;
+
+.other-comic-item-comic {
+    flex: 0 0 120px; 
     text-align: center;
 }
- 
-.other-comic-image {
+
+.other-comic-image-comic {
     width: 100%;
-    height: 150px;
+    height: 150px; 
     object-fit: cover;
 }
- 
-.other-comic-name {
+
+.other-comic-name-comic {
     margin-top: 0.2rem;
-    font-size: 0.9rem;
+    font-size: 0.9rem; 
     font-weight: bold;
     color: #333;
 }
- 
-@media screen and (min-width: 1220px) {
- 
- 
-    .back-button {
+
+.comic-details-image-comic {
+    width: 320px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0px 6px 20px 10px rgba(0, 0, 0, 0.12);
+}
+
+.comic-details-name-comic {
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 28px;
+    color: rgba(12, 12, 12, 1);
+    text-align: left;
+    font-weight: 800;
+    margin: 0px;
+    margin-left: 3.2%;
+}
+
+.other-comics-section-comic{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+
+
+
+@media (min-width: 1024px) {
+    .other-comics-list-comic {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .comic-details-container-comic {
+        width: 65%;
+        margin: 120px auto;
+    }
+
+    .other-comic-item-comic {
+        flex: 0 0 150px;
+        text-align: center;
+    }
+
+    .other-comic-image-comic {
+        height: auto;
+        width: 85%;
+    }
+
+    .comic-details-image-comic {
+        object-fit: contain;
+    }
+
+    .other-comics-title-comic {
+        width: 50%;
+    }
+
+    .character-item-comic {
+        width: 47%;
+        height: 63%;
+    }
+
+    .button-section-comic{
+
+    }
+
+    .back-button-comic {
+        display: flex;
         cursor: pointer;
         border: none;
         background-color: transparent;
         font-family: 'Sofia Sans', sans-serif;
-        font-size: 30px;
-        font-weight: 700;
-        margin-left: -200px;
+        margin-left: -22%;
         position: relative;
-        z-index: 10;
-        top: -40px;
-        left: 20px;
-        z-index: 10;
+        padding-left: 24%;
+        padding-bottom: 40px;
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 28.8px;
+        margin-bottom: 60px;
     }
-   
-    .comic-details-image {
-        width: 300px;
-        height: 431.25px;
-        object-fit: cover;
-        border-radius: 55px 0 55px 0;
-        box-shadow: 4px 2px 20px 8px #0000001F;
-        border-right: 55px;
-        border-bottom: 55px;
-        margin: 0 auto;
-    }
-   
-    .comic-details-container {
-        width: 100%;
-        max-width: 389px;
-        height: auto;
-        margin: 128px auto 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
-   
-    .main-information-container {
+
+    .main-information-container-comic {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -210,92 +242,103 @@
         width: 100%;
         margin-top: -120px;
     }
-   
- 
-   
-   
-    /* Informações do personagem */
-    .comic-informations {
-        flex: 1;
-        margin-left: 40px;
-        margin-top: 10px;
-    }
-   
-    .comic-details-title {  
-        margin-right: 260px;
-        font-size: 24px;
-        font-weight: 800;
-        line-height: 28.8px;
-        margin-bottom: 2px;
-    }
-   
-   
-   
-    .info-item {
-     font-size: 16px;
-     font-family: 'Sofia Sans', sans-serif;
-     width: 100%;
-     display: flex;
-     gap: 11px;
-     align-items: center;
-     justify-content: space-between;
-    }
-   
-    .info-title {
+
+    .info-item-comic {
         font-size: 16px;
-        font-weight: 700;
-        white-space: nowrap;
-        margin-right:auto;
-        margin-bottom: -10px;
+        font-family: 'Sofia Sans', sans-serif;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
     }
-   
-    .info-value {
+
+    .info-price-comic{
+        font-family: 'Sofia Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 24px;
+        text-align: left;
+        margin: 0px;
+        margin-left: 3.2%;
+    }
+
+    .info-value-comic {
         font-size: 16px;
         font-weight: 700;
         line-height: 1.5;
     }
-   
-    /* Histórias relacionadas */
-    .comic-characters {
-        margin-top: 20px;
-       
+
+    .characters-list-comic {
+        justify-items: center;
+        width: 70%;
+        height: 100px;
     }
-   
-    .stories-list {
+
+    .character-image-comic {
+        object-fit: contain;
+    }
+
+    /* Outros quadrinhos */
+    .other-comics-list-comic {
+        gap: 20px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        scrollbar-color: rgba(255, 129, 0, 1) #BABABA;
+    }
+
+    .comic-details-name-comic {
+        text-align: left;
+
+    }
+
+    .comic-informations-comic{
+
+    }
+
+    .comic-buttons-comic {
         display: flex;
-        gap: 15px;
+    
     }
-   
-    .story-item {
-        text-align: center;
-        width: 120px;
-    }
-   
-    .story-image {
+    
+    .comic-characters-comic{
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        height: 150px;
-        object-fit: cover;
-       
     }
-   
-   /* Outros quadrinhos */
-.other-comics-list {
-    gap: 20px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    scrollbar-color: #ff8100 #BABABA;
-}
- 
- 
-.other-comic-item {
-    flex: 0 0 150px;
-}
- 
-.other-comic-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-   
+    
+    .comic-buttons-comic {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      
+      .add-to-cart-button-comic, .buy-now-button-comic {
+        flex: 1;
+        font-family: 'Sofia Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+        border: none;
+        border-radius: 16px;
+        padding: 8px;
+        margin-top: 10px;
+        
+      }
+      
+      .add-to-cart-button-comic {
+        background-color: white;
+        color: black;
+        border: 1.4px solid black;
+    
+      }
+      
+      .buy-now-button-comic {
+        background-color: rgba(255, 129, 0, 1);
+        color: #fff;
+        border: 1.4px solid rgba(255, 129, 0, 1);
+      }
+      
 }

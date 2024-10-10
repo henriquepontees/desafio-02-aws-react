@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../Components/Spinner';
 import Footer from '../Components/Footer';
+import '../styles/CharacterDetails.css';
 interface Comic {
     title: string,
     image: string,
@@ -131,82 +132,81 @@ export const ComicListDetails = () => {
   }
 
   return (
-    <div className="comic-details-container">
-  
-      <a href="/ComicsList/">
-        <button className="back-button-comic-list-details">Voltar</button>
-      </a>
-      <div className="main-information-container-comic-list-details">
-  
-        <div className="comic-image-container">
-          <img src={comic.image} alt={comic.title} className="comic-details-image" />
-        </div>
-  
-        <div className="comic-informations">
-          <h1 className="comic-details-title">{comic.title}</h1>
-
-          <div className="comic-price">
-            <p>R$ {comic.price}</p>
-          </div>
-  
-          <div className="info-item-comic-list-details">
-            <h3>Publicado em</h3>
-            <p>{comic.published}</p>
-          </div>
-  
-          <div className="info-item">
-            <h3>Núm. de Páginas</h3>
-            <p>{comic.pagesNumber}</p>
-          </div>
-  
-          <div className="info-item">
-            <h3>Autor</h3>
-            <p>{comic.author}</p>
-          </div>
-  
-          <div className="info-item">
-            <h3>Série</h3>
-            <p>{comic.series}</p>
-          </div>
-  
-            {comic.characters.length > 0 && (
-            <div className="comic-characters">
-                <h3>Personagens da obra</h3>
-                <div className="characters-list-comic-list-details">
-                {comic.characters.map((character) => (
-                    <div className="character-item-comic-list-details" key={character.id}>
-                        <a href={`/Characters/${character.id}`}>
-                            <img src={character.image} alt={character.name} className="character-image-comic-list-details" />
-                        </a>
-                    <p>{character.name}</p>
-                    </div>
-                ))}
-                </div>
+    <main className="comic-details-container-comic">
+      <section className="button-section-comic">
+      <button className="back-button-comic" onClick={() => window.history.back()}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="64" fill="none" viewBox="0 0 24 24" stroke="rgba(255, 129, 0, 1)">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Voltar
+      </button>
+      </section>
+      <section className="main-information-container-comic">
+        <figure className="comic-image-container-comic">
+          <img src={comic.image} alt={comic.title} className="comic-details-image-comic" />
+        </figure>
+        <div className="comic-informations-comic">
+          <h1 className="comic-details-name-comic">{comic.title}</h1>
+          <p className="info-price-comic">$ {comic.price}</p>
+          <div className="info-container-comic">
+            <div className="info-item-comic">
+              <h3 className="info-title-comic">Publicado em</h3>
+              <p className="info-value-comic">{comic.published}</p>
             </div>
-            )}
-  
-          <div className="comic-buttons">
-            <button className="add-to-cart" onClick={handleAddToCart} >Adicionar ao carrinho</button>
-            <button className="buy-now">Comprar agora</button>
+            <div className="info-item-comic">
+              <h3 className="info-title-comic">Núm. de Páginas</h3>
+              <p className="info-value-comic">{comic.pagesNumber}</p>
+            </div>
+            <div className="info-item-comic">
+              <h3 className="info-title-comic">Autor</h3>
+              <p className="info-value-comic">{comic.author}</p>
+            </div>
+            <div className="info-item-comic">
+              <h3 className="info-title-comic">Série</h3>
+              <p className="info-value-comic">{comic.series}</p>
+            </div>
           </div>
-        </div>
-      </div>
   
-      <div className="other-comics-section">
-        <h2>Mais obras</h2>
-        <div className="other-comics-list">
+          {comic.characters.length > 0 && (
+            <section className="comic-characters-comic">
+              <h3 className="character-list-title-comic">Personagens da obra</h3>
+              <div className="characters-list-comic">
+                {comic.characters.map((character) => (
+                  <div className="character-item-comic" key={character.id}>
+                    <a href={`/Characters/${character.id}`} className='a-comic-comic' >
+                      <img src={character.image} alt={character.name} className="character-image-comic" />
+                    </a>
+                    <p className="character-name-comic">{character.name}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="comic-buttons-comic">
+                <button className="add-to-cart-button-comic">Adicionar ao Carrinho</button>
+                <button className="buy-now-button-comic">Comprar Agora</button>
+            </div>
+            </section>
+          )}
+
+        </div>
+      </section>
+  
+      <section className="other-comics-section-comic">
+        <h2 className="other-comics-title-comic">Mais obras</h2>
+        <div className="other-comics-list-comic">
           {comic.otherComics.map((otherComic) => (
-            <div className="other-comic-item" key={otherComic.id}>
+            <div className="other-comic-item-comic" key={otherComic.id}>
               <a href={`/Comic/${otherComic.id}`}>
-                <img src={otherComic.image} alt={otherComic.name} className="other-comic-image" />
+                <img src={otherComic.image} alt={otherComic.name} className="other-comic-image-comic" />
               </a>
-              <p>{otherComic.name}</p>
+              <h4 className="other-comic-name-comic">{otherComic.name}</h4>
             </div>
           ))}
         </div>
-      </div>
+      </section>
+  
       <Footer />
       <ToastContainer />
-    </div>
-  );  
+    </main>
+  );
+  
 }
